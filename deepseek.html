@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeepSeek Tutorial</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header with Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1>Learn AI</h1>
+      </div>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="generative.html">Back to Generative AI</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Introduction Section -->
+    <section id="introduction" class="tutorial-section">
+      <div class="container">
+        <h2>What is DeepSeek?</h2>
+        <p>DeepSeek is an open-source conversational AI tool designed to rival proprietary systems like ChatGPT. It offers advanced natural language processing (NLP) capabilities, enabling users to engage in human-like conversations, generate text, and perform various NLP tasks.</p>
+        <p>As an open-source alternative, DeepSeek is ideal for developers, researchers, and organizations looking for customizable AI solutions.</p>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="tutorial-section">
+      <div class="container">
+        <h2>How Does DeepSeek Work?</h2>
+        <p>DeepSeek uses transformer-based architecture similar to GPT models. It has been trained on diverse datasets to understand and generate natural language text. Being open-source, it allows developers to fine-tune the model for specific use cases or integrate it into their own applications.</p>
+        <img src="assets/how-deepseek-works.jpg" alt="How DeepSeek Works" class="responsive-image">
+      </div>
+    </section>
+
+    <!-- Getting Started Section -->
+    <section id="getting-started" class="tutorial-section">
+      <div class="container">
+        <h2>Getting Started with DeepSeek</h2>
+        <ol>
+          <li>Visit the official DeepSeek GitHub repository or website.</li>
+          <li>Download the model and follow the setup instructions provided in the documentation.</li>
+          <li>Install the required dependencies (e.g., Python, PyTorch).</li>
+          <li>Run the pre-trained model locally or fine-tune it for your specific needs.</li>
+        </ol>
+        <p>For more advanced use cases, explore the API integration options or community-contributed plugins available on GitHub.</p>
+      </div>
+    </section>
+
+    <!-- Example Use Cases Section -->
+    <section id="use-cases" class="tutorial-section">
+      <div class="container">
+        <h2>Example Use Cases</h2>
+        <div class="examples-grid">
+          <div class="example-card">
+            <h3>Conversational AI</h3>
+            <p><strong>Prompt:</strong> "What are the benefits of renewable energy?"</p>
+            <p><strong>Output:</strong> "Renewable energy sources such as solar and wind power reduce carbon emissions and promote sustainability."</p>
+          </div>
+
+          <div class="example-card">
+            <h3>Text Summarization</h3>
+            <p><strong>Prompt:</strong> "Summarize an article about AI in healthcare."</p>
+            <p><strong>Output:</strong> "AI is transforming healthcare by improving diagnostics, personalizing treatments, and enhancing patient outcomes."</p>
+          </div>
+
+          <div class="example-card">
+            <h3>Coding Assistance</h3>
+            <p><strong>Prompt:</strong> "Write Python code for a simple calculator."</p>
+            <pre><code># Simple Calculator
+def add(a, b):
+    return a + b
+print(add(5, 3))
+            </code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- API Integration Section -->
+    <section id="api-integration" class="tutorial-section">
+      <div class="container">
+        <h2>Integrating DeepSeek via API</h2>
+        <!-- Hypothetical Code Example -->
+        <pre><code># Example in Python
+import requests
+
+# Hypothetical API endpoint for DeepSeek
+url = "https://api.deepseek.ai/v1/query"
+headers = {
+  "Authorization": "Bearer YOUR_API_KEY",
+  "Content-Type": "application/json"
+}
+
+data = {
+  "prompt": "Explain quantum computing in simple terms.",
+  "max_tokens": 150
+}
+
+response = requests.post(url, json=data, headers=headers)
+print(response.json())
+        </code></pre>
+
+        <!-- Documentation Link -->
+        <p>Please visit the official DeepSeek GitHub repository for API documentation and setup instructions.</p>
+      </div>
+    </section>
+
+    <!-- Best Practices & Limitations Section -->
+    <section id="best-practices" class="tutorial-section">
+      <div class="container">
+        <h2>Best Practices & Limitations</h2>
+        <!-- Tips -->
+        <ul>
+          <li><strong>Be specific:</strong> Provide detailed prompts for better results.</li>
+          <li><strong>Acknowledge limitations:</strong> As an open-source model, DeepSeek may require fine-tuning for optimal performance.</li>
+          <li><strong>Experiment with settings:</strong> Adjust parameters like token limits or temperature to refine outputs.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section id="faqs" class="tutorial-section">
+      <div class="container">
+        <h2>FAQs About DeepSeek</h2>
+        <!-- FAQ List -->
+        <ul class="faq-list">
+          <li><strong>Is DeepSeek free?</strong> Yes, as an open-source tool, it is free to use under its licensing terms.</li>
+          <li><strong>Can I fine-tune DeepSeek?</strong> Yes, you can fine-tune the model using your own datasets for specific applications.</li>
+          <li><strong>What are the system requirements?</strong> Running DeepSeek locally may require a GPU and sufficient computational resources.</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Learn AI. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
+

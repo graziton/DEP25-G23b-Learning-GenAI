@@ -7,4 +7,4 @@ This website is designed as a slide‑based tutorial to help beginners understan
 - **index.html** – Main webpage
 - **style.css** – Styling for the website
 - **script.js** – JavaScript for slide navigation
-- **assets/** – Folder for images and additional media (if needed)
+- **assets/** – Folder for images and additional media

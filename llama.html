@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Llama (Meta) Tutorial</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header with Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1>Learn AI</h1>
+      </div>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="generative.html">Back to Generative AI</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Introduction Section -->
+    <section id="introduction" class="tutorial-section">
+      <div class="container">
+        <h2>What is Llama (Meta)?</h2>
+        <p>Llama (Large Language Model Meta AI) is a powerful language model developed by Meta (formerly Facebook). It is designed to generate human-like text for a variety of applications, including conversational AI, text summarization, and content generation. Llama focuses on delivering high performance while being computationally efficient.</p>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="tutorial-section">
+      <div class="container">
+        <h2>How Does Llama Work?</h2>
+        <p>Llama uses advanced transformer-based architecture to process and generate text. It has been trained on a massive dataset of diverse textual information, enabling it to understand context and produce coherent responses. Meta has optimized Llama for efficiency, making it suitable for both research and real-world applications.</p>
+        <img src="assets/how-llama-works.jpg" alt="How Llama Works" class="responsive-image">
+      </div>
+    </section>
+
+    <!-- Getting Started Section -->
+    <section id="getting-started" class="tutorial-section">
+      <div class="container">
+        <h2>Getting Started with Llama</h2>
+        <ol>
+          <li>Visit Meta’s official AI research website at <a href="https://ai.meta.com/" target="_blank">ai.meta.com</a>.</li>
+          <li>Explore the documentation and available resources for Llama.</li>
+          <li>If you’re a researcher or developer, request access to the model or download it if available.</li>
+          <li>Set up your environment using Python and required libraries to start experimenting with Llama.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Example Use Cases Section -->
+    <section id="use-cases" class="tutorial-section">
+      <div class="container">
+        <h2>Example Use Cases</h2>
+        <div class="examples-grid">
+          <div class="example-card">
+            <h3>Conversational AI</h3>
+            <p><strong>Prompt:</strong> "Explain quantum mechanics in simple terms."</p>
+            <p><strong>Output:</strong> "Quantum mechanics is a branch of physics that studies very small particles like electrons and photons..."</p>
+          </div>
+
+          <div class="example-card">
+            <h3>Text Summarization</h3>
+            <p><strong>Prompt:</strong> "Summarize the article about climate change."</p>
+            <p><strong>Output:</strong> "The article discusses the impact of global warming on ecosystems and emphasizes the need for renewable energy solutions."</p>
+          </div>
+
+          <div class="example-card">
+            <h3>Content Generation</h3>
+            <p><strong>Prompt:</strong> "Write a blog introduction about AI in healthcare."</p>
+            <p><strong>Output:</strong> "Artificial Intelligence (AI) is transforming healthcare by improving diagnostics, personalizing treatments, and enhancing patient care."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- API Integration Section -->
+    <section id="api-integration" class="tutorial-section">
+      <div class="container">
+        <h2>Integrating Llama via API</h2>
+        <!-- Hypothetical Code Example -->
+        <pre><code># Example in Python
+import requests
+
+# Hypothetical API endpoint for Llama
+url = "https://api.meta.ai/llama/v1/generate"
+headers = {
+  "Authorization": "Bearer YOUR_API_KEY",
+  "Content-Type": "application/json"
+}
+
+data = {
+  "prompt": "Write an introduction to machine learning.",
+  "max_tokens": 150
+}
+
+response = requests.post(url, json=data, headers=headers)
+print(response.json())
+        </code></pre>
+
+        <!-- Documentation Link -->
+        <p>Please visit Meta’s official documentation at 
+          <a href="https://ai.meta.com/" target="_blank">Meta AI Documentation</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Best Practices & Limitations Section -->
+    <section id="best-practices" class="tutorial-section">
+      <div class="container">
+        <h2>Best Practices & Limitations</h2>
+        <!-- Tips -->
+        <ul>
+          <li><strong>Be specific:</strong> Provide clear prompts to achieve accurate results.</li>
+          <li><strong>Acknowledge limitations:</strong> Llama may generate incorrect or incomplete information in some cases.</li>
+          <li><strong>Experiment with parameters:</strong> Adjust token limits or temperature settings for better results.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section id="faqs" class="tutorial-section">
+      <div class="container">
+        <h2>FAQs About Llama (Meta)</h2>
+        <!-- FAQ List -->
+        <ul class="faq-list">
+          <li><strong>Is Llama open-source?</strong> Meta has made certain versions of Llama available to researchers under specific licensing agreements.</li>
+          <li><strong>Can I use Llama for commercial projects?</strong> Usage depends on Meta’s licensing terms; check their official website for details.</li>
+          <li><strong>What are the system requirements?</strong> Running Llama locally may require significant computational resources such as GPUs.</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Learn AI. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
+

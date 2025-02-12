@@ -3,33 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Generative AI Tutorial</title>
+  <title>Learn AI - Your One-Stop Hub for AI Tutorials</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Optionally, you can link to Bootstrap CSS here if you choose -->
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Generative AI Tutorial</h1>
-      <p>Learn how to use generative AI tools through interactive slides.</p>
-    </header>
-    <main>
-      <!-- Each section represents a slide-like page -->
-      <section class="slide active">
-        <h2>Introduction</h2>
-        <p>Welcome to the tutorial on generative AI! In this slide, we explain what generative AI is and why it matters.</p>
-      </section>
-      <section class="slide">
-        <h2>What is ChatGPT?</h2>
-        <p>ChatGPT is an AI chatbot that generates human-like text responses based on your input.</p>
-      </section>
-      <!-- Add more slides as needed -->
-      <nav>
-        <button id="prevBtn">Previous</button>
-        <button id="nextBtn">Next</button>
-      </nav>
-    </main>
-  </div>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1>Learn AI</h1>
+      </div>
+      <ul class="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#categories">AI Categories</a></li>
+        <li><a href="#resources">Resources</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="hero-content">
+        <h2>Welcome to Learn AI</h2>
+        <p>
+          Dive into the vast world of Artificial Intelligence. Whether you're just starting out or looking to master practical applications, our tutorials, interactive demos, and comprehensive guides have something for everyone.
+        </p>
+        <a href="#categories" class="cta-button">Start Learning Now!</a>
+      </div>
+    </section>
+
+    <!-- AI Categories Overview Section -->
+    <section id="categories" class="categories-section">
+      <div class="container">
+        <h2>Explore AI Categories</h2>
+        <div class="categories-grid">
+          <!-- Generative AI Card -->
+          <div class="category-card">
+            <a href="generative.html">
+              <img src="assets/generative.jpg" alt="Generative AI">
+              <h3>Generative AI</h3>
+              <p>Create text, images, video, and more with advanced generative models.</p>
+            </a>
+          </div>
+
+          <!-- Predictive Analytics Card -->
+          <div class="category-card">
+            <a href="predictive.html">
+              <img src="assets/predictive.jpg" alt="Predictive Analytics">
+              <h3>Predictive Analytics</h3>
+              <p>Forecast trends and outcomes using intelligent data analytics.</p>
+            </a>
+          </div>
+
+          <!-- Computer Vision Card -->
+          <div class="category-card">
+            <a href="computer-vision.html">
+              <img src="assets/computer-vision.jpg" alt="Computer Vision">
+              <h3>Computer Vision</h3>
+              <p>Empower machines to understand and interpret visual information.</p>
+            </a>
+          </div>
+
+          <!-- Natural Language Processing (NLP) Card -->
+          <div class="category-card">
+            <a href="nlp.html">
+              <img src="assets/nlp.jpg" alt="Natural Language Processing">
+              <h3>Natural Language Processing (NLP)</h3>
+              <p>Unlock the secrets of language through text analysis and generation.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources Section Placeholder -->
+    <!-- This section can be expanded later with links to external tutorials, documentation, or videos -->
+    <section id="resources" class="resources-section">
+      <div class="container">
+        <h2>Resources</h2>
+        <p>Explore additional resources to deepen your understanding of Artificial Intelligence.</p>
+        <!-- Add links or cards for external resources here in the future -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Learn AI. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript File -->
   <script src="script.js"></script>
 </body>
 </html>
+

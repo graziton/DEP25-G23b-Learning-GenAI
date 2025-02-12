@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Runway ML Tutorial</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header with Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1>Learn AI</h1>
+      </div>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="generative.html">Back to Generative AI</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Introduction Section -->
+    <section id="introduction" class="tutorial-section">
+      <div class="container">
+        <h2>What is Runway ML?</h2>
+        <p>Runway ML is a creative platform that uses AI to help artists, designers, and creators generate videos, animations, and multimedia content. It offers a suite of tools for tasks like video editing, object removal, text-to-video generation, and more.</p>
+        <p>Runway ML is widely used in industries such as film production, game development, and digital marketing for its ability to streamline creative workflows.</p>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="tutorial-section">
+      <div class="container">
+        <h2>How Does Runway ML Work?</h2>
+        <p>Runway ML leverages advanced machine learning models to perform tasks like video editing and text-to-video generation. By combining AI with an intuitive interface, it enables creators to produce high-quality outputs without requiring extensive technical knowledge.</p>
+        <img src="assets/how-runway-works.jpg" alt="How Runway ML Works" class="responsive-image">
+      </div>
+    </section>
+
+    <!-- Getting Started Section -->
+    <section id="getting-started" class="tutorial-section">
+      <div class="container">
+        <h2>Getting Started with Runway ML</h2>
+        <ol>
+          <li>Visit the official Runway ML website at <a href="https://www.runwayml.com/" target="_blank">runwayml.com</a>.</li>
+          <li>Create an account or log in.</li>
+          <li>Select a tool or feature from the dashboard (e.g., Text-to-Video, Object Removal).</li>
+          <li>Upload your media files or enter your text prompt (e.g., "A futuristic city at sunset").</li>
+          <li>Customize settings like resolution, duration, or style.</li>
+          <li>Click "Generate" or "Export" to create your final output!</li>
+        </ol>
+        <p>You can download your creations or integrate them into your projects directly.</p>
+      </div>
+    </section>
+
+    <!-- Example Use Cases Section -->
+    <section id="use-cases" class="tutorial-section">
+      <div class="container">
+        <h2>Example Use Cases</h2>
+        <!-- Example Prompts -->
+        <div class="examples-grid">
+          <div class="example-card">
+            <h3>Video Editing</h3>
+            <p><strong>Task:</strong> Remove unwanted objects from a video scene.</p>
+            <img src="assets/example-video-editing.jpg" alt="Video Editing Example" class="example-image">
+          </div>
+
+          <div class="example-card">
+            <h3>Text-to-Video Generation</h3>
+            <p><strong>Prompt:</strong> "A serene beach during sunset with waves crashing."</p>
+            <img src="assets/example-text-to-video.jpg" alt="Text-to-Video Example" class="example-image">
+          </div>
+
+          <div class="example-card">
+            <h3>Creative Animations</h3>
+            <p><strong>Task:</strong> Generate an abstract animation for a music video.</p>
+            <img src="assets/example-animation.jpg" alt="Creative Animation Example" class="example-image">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- API Integration Section -->
+    <!-- Hypothetical Code Example -->
+    <!-- Note: Replace with real API details if available -->
+    <section id="api-integration" class="tutorial-section">
+      <div class="container">
+        <h2>Integrating Runway ML via API</h2>
+        <!-- Hypothetical Code Example -->
+        <pre><code># Example in Python
+import requests
+
+# Hypothetical API endpoint for Runway ML
+url = "https://api.runwayml.com/v1/generate"
+headers = {
+  "Authorization": "Bearer YOUR_API_KEY",
+  "Content-Type": "application/json"
+}
+
+data = {
+  "task": "text_to_video",
+  "prompt": "A futuristic city at night with flying cars.",
+  "resolution": "1080p",
+  "duration": 10
+}
+
+response = requests.post(url, json=data, headers=headers)
+print(response.json())
+        </code></pre>
+
+        <!-- Documentation Link -->
+        <p>Please visit the official Runway ML API documentation at 
+          <a href="https://www.runwayml.com/" target="_blank">Runway ML Documentation</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Best Practices & Limitations Section -->
+    <section id="best-practices" class="tutorial-section">
+      <div class="container">
+        <h2>Best Practices & Limitations</h2>
+        <!-- Tips -->
+        <ul>
+          <li><strong>Select the right tool:</strong> Choose the specific feature (e.g., Text-to-Video) that best suits your project needs.</li>
+          <li><strong>Acknowledge limitations:</strong> While Runway ML is powerful, complex tasks may require additional manual adjustments.</li>
+          <li><strong>Tweak settings:</strong> Experiment with resolution and duration settings for optimal results.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section id="faqs" class="tutorial-section">
+      <div class="container">
+        <h2>FAQs About Runway ML</h2>
+        <!-- FAQ List -->
+        <ul class="faq-list">
+          <li><strong>Is Runway ML free?</strong> Runway ML offers both free and paid plans depending on usage and features.</li>
+          <li><strong>Can I use it for commercial projects?</strong> Yes, Runway ML is widely used for professional and commercial applications.</li>
+          <li><strong>Does it support team collaboration?</strong> Yes, Runway ML includes features for team collaboration on creative projects.</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Learn AI. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
+

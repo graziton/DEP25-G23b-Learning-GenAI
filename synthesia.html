@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Synthesia Tutorial</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header with Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1>Learn AI</h1>
+      </div>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="generative.html">Back to Generative AI</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Introduction Section -->
+    <section id="introduction" class="tutorial-section">
+      <div class="container">
+        <h2>What is Synthesia?</h2>
+        <p>Synthesia is an AI-powered video generation platform that allows users to create professional videos from text scripts. It uses AI avatars and voiceovers to produce high-quality videos without requiring cameras or actors. Synthesia is widely used for corporate training, marketing, and educational content creation.</p>
+        <p>With its intuitive interface and support for multiple languages, Synthesia makes video production accessible to everyone.</p>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="tutorial-section">
+      <div class="container">
+        <h2>How Does Synthesia Work?</h2>
+        <p>Synthesia uses advanced AI models to generate lifelike avatars and voiceovers based on your input text. By analyzing the script you provide, it creates a video with synchronized visuals and audio that match your desired tone and style.</p>
+        <img src="assets/how-synthesia-works.jpg" alt="How Synthesia Works" class="responsive-image">
+      </div>
+    </section>
+
+    <!-- Getting Started Section -->
+    <section id="getting-started" class="tutorial-section">
+      <div class="container">
+        <h2>Getting Started with Synthesia</h2>
+        <ol>
+          <li>Visit the official Synthesia website at <a href="https://www.synthesia.io/" target="_blank">synthesia.io</a>.</li>
+          <li>Create an account or log in.</li>
+          <li>Select a video template or start from scratch.</li>
+          <li>Enter your text script (e.g., "Welcome to our company’s onboarding program").</li>
+          <li>Choose an AI avatar and voice style that matches your needs.</li>
+          <li>Customize settings such as background, branding elements, and language.</li>
+          <li>Click "Generate Video" to create your professional video!</li>
+        </ol>
+        <p>You can download the generated video or share it directly from the platform.</p>
+      </div>
+    </section>
+
+    <!-- Example Use Cases Section -->
+    <section id="use-cases" class="tutorial-section">
+      <div class="container">
+        <h2>Example Use Cases</h2>
+        <!-- Example Prompts -->
+        <div class="examples-grid">
+          <div class="example-card">
+            <h3>Corporate Training</h3>
+            <p><strong>Script:</strong> "Welcome to our onboarding program. In this session, we’ll cover company policies and core values."</p>
+            <img src="assets/example-corporate-training.jpg" alt="Corporate Training Example" class="example-image">
+          </div>
+
+          <div class="example-card">
+            <h3>Marketing Videos</h3>
+            <p><strong>Script:</strong> "Discover our latest product innovation designed to make your life easier."</p>
+            <img src="assets/example-marketing.jpg" alt="Marketing Video Example" class="example-image">
+          </div>
+
+          <div class="example-card">
+            <h3>Educational Content</h3>
+            <p><strong>Script:</strong> "In this lesson, we’ll explore the basics of renewable energy and its benefits."</p>
+            <img src="assets/example-educational.jpg" alt="Educational Content Example" class="example-image">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- API Integration Section -->
+    <!-- Hypothetical Code Example -->
+    <!-- Note: Replace with real API details if available -->
+    <section id="api-integration" class="tutorial-section">
+      <div class="container">
+        <h2>Integrating Synthesia via API</h2>
+        <!-- Hypothetical Code Example -->
+        <pre><code># Example in Python
+import requests
+
+# Hypothetical API endpoint for Synthesia
+url = "https://api.synthesia.io/v1/generate"
+headers = {
+  "Authorization": "Bearer YOUR_API_KEY",
+  "Content-Type": "application/json"
+}
+
+data = {
+  "script": "Welcome to our onboarding program.",
+  "avatar": "Professional",
+  "language": "English",
+  "branding": {
+    "logo": "https://example.com/logo.png"
+  }
+}
+
+response = requests.post(url, json=data, headers=headers)
+print(response.json())
+        </code></pre>
+
+        <!-- Documentation Link -->
+        <p>Please visit the official Synthesia API documentation at 
+          <a href="https://www.synthesia.io/" target="_blank">Synthesia Documentation</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Best Practices & Limitations Section -->
+    <section id="best-practices" class="tutorial-section">
+      <div class="container">
+        <h2>Best Practices & Limitations</h2>
+        <!-- Tips -->
+        <ul>
+          <li><strong>Be concise:</strong> Keep scripts short and clear for better engagement.</li>
+          <li><strong>Acknowledge limitations:</strong> While Synthesia excels at generating professional videos, it may require manual editing for highly specific visuals or branding.</li>
+          <li><strong>Tweak settings:</strong> Experiment with different avatars and styles to match your audience or brand identity.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section id="faqs" class="tutorial-section">
+      <div class="container">
+        <h2>FAQs About Synthesia</h2>
+        <!-- FAQ List -->
+        <ul class="faq-list">
+          <li><strong>Is Synthesia free?</strong> No, Synthesia offers subscription plans based on usage and features.</li>
+          <li><strong>Can I use it for commercial projects?</strong> Yes, Synthesia is widely used for creating corporate training videos, advertisements, and more.</li>
+          <li><strong>Does it support multiple languages?</strong> Yes, Synthesia supports over 120 languages and accents.</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Learn AI. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
+

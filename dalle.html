@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DALL·E Tutorial</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1>Learn AI</h1>
+      </div>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="generative.html">Back to Generative AI</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Introduction Section -->
+    <section id="introduction" class="tutorial-section">
+      <div class="container">
+        <h2>What is DALL·E?</h2>
+        <p>DALL·E is an AI system developed by OpenAI that creates images from textual descriptions. It combines natural language processing (NLP) with computer vision to generate highly creative and detailed images based on your input.</p>
+        <p>From designing artwork to creating visual concepts for projects, DALL·E opens up endless possibilities for creativity.</p>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="tutorial-section">
+      <div class="container">
+        <h2>How Does DALL·E Work?</h2>
+        <p>DALL·E uses a variation of OpenAI's GPT model that has been trained on both text and image data. When you provide a text prompt (e.g., "a futuristic cityscape at sunset"), DALL·E generates a corresponding image by understanding the relationships between words and visual elements.</p>
+        <!-- Optional Visual -->
+        <img src="assets/how-dalle-works.jpg" alt="How DALL·E Works" class="responsive-image">
+      </div>
+    </section>
+
+    <!-- Getting Started Section -->
+    <section id="getting-started" class="tutorial-section">
+      <div class="container">
+        <h2>Getting Started with DALL·E</h2>
+        <ol>
+          <li>Visit the official OpenAI website at <a href="https://openai.com/dall-e" target="_blank">openai.com/dall-e</a>.</li>
+          <li>Create an account or log in.</li>
+          <li>Type a description of what you want to generate (e.g., "a cat sitting on a spaceship").</li>
+          <li>Click "Generate" to see your image!</li>
+        </ol>
+        <p>You can also explore advanced settings like image variations or editing existing images.</p>
+      </div>
+    </section>
+
+    <!-- Example Use Cases Section -->
+    <section id="use-cases" class="tutorial-section">
+      <div class="container">
+        <h2>Example Use Cases</h2>
+        <!-- Example Prompts -->
+        <div class="examples-grid">
+          <div class="example-card">
+            <h3>Creative Artwork</h3>
+            <p><strong>Prompt:</strong> "A surreal painting of a tree growing on a cloud."</p>
+            <img src="assets/example-artwork.jpg" alt="Creative Artwork Example" class="example-image">
+          </div>
+
+          <div class="example-card">
+            <h3>Product Design</h3>
+            <p><strong>Prompt:</strong> "A futuristic smartwatch design."</p>
+            <img src="assets/example-product.jpg" alt="Product Design Example" class="example-image">
+          </div>
+
+          <div class="example-card">
+            <h3>Story Illustration</h3>
+            <p><strong>Prompt:</strong> "An illustration of a dragon flying over a medieval castle."</p>
+            <img src="assets/example-story.jpg" alt="Story Illustration Example" class="example-image">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- API Integration Section -->
+    <section id="api-integration" class="tutorial-section">
+      <div class="container">
+        <h2>Integrating DALL·E via API</h2>
+        <!-- Code Example -->
+        <pre><code>
+// Example in Python
+import openai
+
+openai.api_key = "YOUR_API_KEY"
+
+response = openai.Image.create(
+  prompt="A futuristic cityscape at sunset",
+  n=1,
+  size="1024x1024"
+)
+
+image_url = response['data'][0]['url']
+print(image_url)
+        </code></pre>
+
+        <!-- Link to API Documentation -->
+        <p>For more details, visit the official OpenAI API documentation at 
+          <a href="https://platform.openai.com/docs/" target="_blank">OpenAI API Docs</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Best Practices & Limitations Section -->
+    <section id="best-practices" class="tutorial-section">
+      <div class="container">
+        <h2>Best Practices & Limitations</h2>
+        <!-- Tips -->
+        <ul>
+          <li><strong>Be descriptive:</strong> Include specific details in your prompts for better results (e.g., "A red sports car driving through a forest").</li>
+          <li><strong>Avoid vague prompts:</strong> General descriptions may lead to less accurate images.</li>
+          <li><strong>Acknowledge limitations:</strong> DALL·E may struggle with complex scenes or abstract concepts.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section id="faqs" class="tutorial-section">
+      <div class="container">
+        <h2>FAQs About DALL·E</h2>
+        <!-- FAQ List -->
+        <ul class="faq-list">
+          <li><strong>Is DALL·E free?</strong> Certain features may require payment or credits.</li>
+          <li><strong>Can I edit existing images?</strong> Yes, DALL·E allows you to edit images by providing new prompts.</li>
+          <!-- Add more FAQs as needed -->
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Learn AI. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
+

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatGPT Tutorial</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1>Learn AI</h1>
+      </div>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="generative.html">Back to Generative AI</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Introduction Section -->
+    <section id="introduction" class="tutorial-section">
+      <div class="container">
+        <h2>What is ChatGPT?</h2>
+        <p>ChatGPT is an advanced AI chatbot developed by OpenAI that generates human-like text based on user inputs. It can assist with writing, coding, brainstorming ideas, answering questions, and much more.</p>
+        <p>Whether you're a student, developer, or professional, ChatGPT has something to offer!</p>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="tutorial-section">
+      <div class="container">
+        <h2>How Does ChatGPT Work?</h2>
+        <p>ChatGPT is powered by GPT (Generative Pre-trained Transformer), a large language model trained on vast amounts of text data. It uses deep learning techniques to understand and generate human-like responses.</p>
+        <!-- Optional Visual -->
+        <img src="assets/how-chatgpt-works.jpg" alt="How ChatGPT Works" class="responsive-image">
+      </div>
+    </section>
+
+    <!-- Getting Started Section -->
+    <section id="getting-started" class="tutorial-section">
+      <div class="container">
+        <h2>Getting Started with ChatGPT</h2>
+        <ol>
+          <li>Visit the official OpenAI website at <a href="https://openai.com/chatgpt" target="_blank">openai.com/chatgpt</a>.</li>
+          <li>Create an account or log in.</li>
+          <li>Start interacting with ChatGPT by typing your questions or prompts in the chat box.</li>
+        </ol>
+        <p>You can also explore OpenAI's Playground for more advanced features.</p>
+      </div>
+    </section>
+
+    <!-- Example Use Cases Section -->
+    <section id="use-cases" class="tutorial-section">
+      <div class="container">
+        <h2>Example Use Cases</h2>
+        <!-- Example Prompts -->
+        <div class="examples-grid">
+          <div class="example-card">
+            <h3>Creative Writing</h3>
+            <p><strong>Prompt:</strong> "Write a short story about a robot learning emotions."</p>
+            <p><strong>Output:</strong> "Once upon a time, in a distant future..."</p>
+          </div>
+
+          <div class="example-card">
+            <h3>Coding Assistance</h3>
+            <p><strong>Prompt:</strong> "Write Python code for a calculator."</p>
+            <p><strong>Output:</strong></p>
+            <pre><code>def calculator(a, b): return a + b</code></pre>
+          </div>
+
+          <div class="example-card">
+            <h3>Customer Support</h3>
+            <p><strong>Prompt:</strong> "How do I reset my password?"</p>
+            <p><strong>Output:</strong> "To reset your password, click on 'Forgot Password'..."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- API Integration Section -->
+    <section id="api-integration" class="tutorial-section">
+      <div class="container">
+        <h2>Integrating ChatGPT via API</h2>
+        <!-- Code Example -->
+        <pre><code>
+// Example in Python
+import openai
+
+openai.api_key = "YOUR_API_KEY"
+
+response = openai.Completion.create(
+  engine="text-davinci-003",
+  prompt="Write a poem about AI",
+  max_tokens=100
+)
+
+print(response.choices[0].text)
+        </code></pre>
+
+        <!-- Link to API Documentation -->
+        <p>For more details, visit the official OpenAI API documentation at 
+          <a href="https://platform.openai.com/docs/" target="_blank">OpenAI API Docs</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Best Practices & Limitations Section -->
+    <section id="best-practices" class="tutorial-section">
+      <div class="container">
+        <h2>Best Practices & Limitations</h2>
+        <!-- Tips -->
+        <ul>
+          <li><strong>Be specific:</strong> Provide clear and detailed prompts for better responses.</li>
+          <li><strong>Avoid ambiguity:</strong> Rephrase your question if the response isn’t accurate.</li>
+          <li><strong>Acknowledge limitations:</strong> Remember that ChatGPT may generate incorrect or biased information.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section id="faqs" class="tutorial-section">
+      <div class="container">
+        <h2>FAQs About ChatGPT</h2>
+        <!-- FAQ List -->
+        <ul class="faq-list">
+          <li><strong>Is ChatGPT free?</strong> Yes, but certain features may require payment or subscription.</li>
+          <li><strong>Can I use it offline?</strong> No, it requires an internet connection.</li>
+          <!-- Add more FAQs as needed -->
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Learn AI. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
+
