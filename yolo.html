@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOLO Tutorial - Computer Vision</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header with Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1>Learn AI</h1>
+      </div>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="computer-vision.html">Back to Computer Vision</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Introduction Section -->
+    <section id="introduction" class="tutorial-section">
+      <div class="container">
+        <h2>What is YOLO?</h2>
+        <p>YOLO (You Only Look Once) is a state-of-the-art, real-time object detection system that processes an image in a single pass through a neural network. It is widely used for tasks like detecting objects in images or videos with high speed and accuracy.</p>
+        <p>YOLO’s ability to detect multiple objects simultaneously makes it ideal for applications like autonomous driving, security surveillance, and sports analytics.</p>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="tutorial-section">
+      <div class="container">
+        <h2>How Does YOLO Work?</h2>
+        <p>YOLO divides an image into a grid and predicts bounding boxes and class probabilities for each grid cell. Unlike traditional methods that process images in multiple stages, YOLO processes the entire image in one go, making it extremely fast.</p>
+        <img src="assets/how-yolo-works.jpg" alt="How YOLO Works" class="responsive-image">
+      </div>
+    </section>
+
+    <!-- Getting Started Section -->
+    <section id="getting-started" class="tutorial-section">
+      <div class="container">
+        <h2>Getting Started with YOLO</h2>
+        <ol>
+          <li>Install the required libraries. For Python, run:
+            <code>pip install opencv-python numpy torch torchvision</code>.
+          </li>
+          <li>Download the pre-trained YOLO weights and configuration files from the official YOLO repository or a trusted source.</li>
+          <li>Load the YOLO model in Python using OpenCV’s DNN module:
+            <pre><code># Example code snippet
+import cv2
+
+net = cv2.dnn.readNet('yolov3.weights', 'yolov3.cfg')
+layer_names = net.getLayerNames()
+output_layers = [layer_names[i - 1] for i in net.getUnconnectedOutLayers()]
+            </code></pre>
+          </li>
+          <li>Load an image or video and pass it through the YOLO model to detect objects.</li>
+          <li>Draw bounding boxes around detected objects using OpenCV functions like `cv2.rectangle()`.</li>
+        </ol>
+        <p>You can also use YOLO with PyTorch or TensorFlow for more advanced implementations.</p>
+      </div>
+    </section>
+
+    <!-- Example Use Cases Section -->
+    <section id="use-cases" class="tutorial-section">
+      <div class="container">
+        <h2>Example Use Cases</h2>
+        <!-- Example Prompts -->
+        <div class="examples-grid">
+          <!-- Object Detection Example -->
+          <div class="example-card">
+            <h3>Object Detection in Videos</h3>
+            <p><strong>Scenario:</strong> Detect objects like cars, pedestrians, and traffic lights in real-time video streams for autonomous driving.</p>
+            <img src="assets/example-object-detection-yolo.jpg" alt="Object Detection Example" class="example-image">
+          </div>
+
+          <!-- Security Surveillance Example -->
+          <div class="example-card">
+            <h3>Security Surveillance</h3>
+            <p><strong>Scenario:</strong> Monitor live camera feeds to detect unauthorized access or suspicious activities.</p>
+            <img src="assets/example-security-surveillance.jpg" alt="Security Surveillance Example" class="example-image">
+          </div>
+
+          <!-- Sports Analytics Example -->
+          <div class="example-card">
+            <h3>Sports Analytics</h3>
+            <p><strong>Scenario:</strong> Track players and analyze movements during live sports events for performance analysis.</p>
+            <img src="assets/example-sports-analytics.jpg" alt="Sports Analytics Example" class="example-image">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Best Practices & Limitations Section -->
+    <section id="best-practices" class="tutorial-section">
+      <div class="container">
+        <h2>Best Practices & Limitations</h2>
+        <!-- Tips -->
+        <ul>
+          <li><strong>Choose the right version:</strong> Use the latest YOLO version (e.g., YOLOv5 or YOLOv7) for improved accuracy and performance.</li>
+          <li><strong>Acknowledge limitations:</strong> YOLO may struggle with small objects or overlapping objects in crowded scenes.</li>
+          <li><strong>Tune thresholds:</strong> Adjust confidence thresholds to balance between false positives and false negatives.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section id="faqs" class="tutorial-section">
+      <div class="container">
+        <h2>FAQs About YOLO</h2>
+        <!-- FAQ List -->
+        <ul class="faq-list">
+          <li><strong>Is YOLO free to use?</strong> Yes, YOLO is open-source and free to use under its respective license.</li>
+          <li><strong>Which programming languages support YOLO?</strong> While Python is the most common language used with YOLO, it can also be implemented in C++, JavaScript, and other languages via bindings or libraries.</li>
+          <li><strong>Can I use YOLO for real-time applications?</strong> Yes, YOLO is optimized for real-time object detection and is widely used in applications like robotics and video surveillance.</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Learn AI. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
+

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IBM Watson NLP Tutorial - NLP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header with Navigation -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1>Learn AI</h1>
+      </div>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="nlp.html">Back to NLP</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Introduction Section -->
+    <section id="introduction" class="tutorial-section">
+      <div class="container">
+        <h2>What is IBM Watson NLP?</h2>
+        <p>IBM Watson NLP is a cloud-based platform that provides advanced natural language understanding (NLU) and text analytics capabilities. It offers pre-built APIs for tasks like sentiment analysis, keyword extraction, entity recognition, and language translation.</p>
+        <p>With its enterprise-grade features and scalability, IBM Watson NLP is widely used in industries like customer service, healthcare, and finance to extract insights from unstructured text data.</p>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="tutorial-section">
+      <div class="container">
+        <h2>How Does IBM Watson NLP Work?</h2>
+        <p>IBM Watson NLP uses machine learning models to process text data through its APIs. Developers can send text data to the API endpoints, and the service returns structured data such as sentiment scores, extracted keywords, or identified entities. The platform also supports custom model training for domain-specific tasks.</p>
+        <img src="assets/how-ibm-watson-works.jpg" alt="How IBM Watson Works" class="responsive-image">
+      </div>
+    </section>
+
+    <!-- Getting Started Section -->
+    <section id="getting-started" class="tutorial-section">
+      <div class="container">
+        <h2>Getting Started with IBM Watson NLP</h2>
+        <ol>
+          <li>Create an IBM Cloud account at 
+            <a href="https://cloud.ibm.com/" target="_blank">cloud.ibm.com</a>.
+          </li>
+          <li>Navigate to the "Watson Natural Language Understanding" service in the IBM Cloud catalog.</li>
+          <li>Create an instance of the service and generate API credentials (API key and endpoint URL).</li>
+          <li>Use the API in your application. For example, in Python:
+            <pre><code># Example Python code
+from ibm_watson import NaturalLanguageUnderstandingV1
+from ibm_watson.natural_language_understanding_v1 import Features, KeywordsOptions
+
+# Initialize the service
+service = NaturalLanguageUnderstandingV1(
+    version='2023-01-01',
+    iam_apikey='YOUR_API_KEY',
+    url='YOUR_ENDPOINT_URL'
+)
+
+# Analyze text
+response = service.analyze(
+    text='AI is transforming industries worldwide.',
+    features=Features(keywords=KeywordsOptions(sentiment=True, limit=3))
+).get_result()
+
+print(response)
+            </code></pre>
+          </li>
+          <li>Analyze the structured response returned by the API for insights like sentiment scores or extracted keywords.</li>
+        </ol>
+        <p>You can also explore IBM’s SDKs for other programming languages like Node.js or Java.</p>
+      </div>
+    </section>
+
+    <!-- Example Use Cases Section -->
+    <section id="use-cases" class="tutorial-section">
+      <div class="container">
+        <h2>Example Use Cases</h2>
+        <!-- Example Prompts -->
+        <div class="examples-grid">
+          <!-- Sentiment Analysis Example -->
+          <div class="example-card">
+            <h3>Sentiment Analysis</h3>
+            <p><strong>Scenario:</strong> Analyze customer feedback to determine whether sentiments are positive, negative, or neutral.</p>
+            <img src="assets/example-sentiment-analysis.jpg" alt="Sentiment Analysis Example" class="example-image">
+          </div>
+
+          <!-- Keyword Extraction Example -->
+          <div class="example-card">
+            <h3>Keyword Extraction</h3>
+            <p><strong>Scenario:</strong> Extract key phrases from product reviews to identify common topics or issues.</p>
+            <img src="assets/example-keyword-extraction.jpg" alt="Keyword Extraction Example" class="example-image">
+          </div>
+
+          <!-- Entity Recognition Example -->
+          <div class="example-card">
+            <h3>Entity Recognition</h3>
+            <p><strong>Scenario:</strong> Identify entities like names, locations, or dates from legal documents or articles.</p>
+            <img src="assets/example-entity-recognition.jpg" alt="Entity Recognition Example" class="example-image">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Best Practices & Limitations Section -->
+    <section id="best-practices" class="tutorial-section">
+      <div class="container">
+        <h2>Best Practices & Limitations</h2>
+        <!-- Tips -->
+        <ul>
+          <li><strong>Select appropriate features:</strong> Use only the features you need (e.g., sentiment analysis or keyword extraction) to optimize API costs.</li>
+          <li><strong>Acknowledge limitations:</strong> The accuracy of results depends on the quality of input text and training data for custom models.</li>
+          <li><strong>Leverage custom models:</strong> Train custom models for domain-specific tasks to improve accuracy.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section id="faqs" class="tutorial-section">
+      <div class="container">
+        <h2>FAQs About IBM Watson NLP</h2>
+        <!-- FAQ List -->
+        <ul class="faq-list">
+          <li><strong>Is IBM Watson free?</strong> IBM offers a free tier with limited usage. Paid plans are available for higher usage limits and advanced features.</li>
+          <li><strong>Which programming languages are supported?</strong> IBM Watson provides SDKs for Python, Node.js, Java, and more.</li>
+          <li><strong>Can I train custom models?</strong> Yes, you can train custom models using your own datasets for domain-specific tasks.</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Learn AI. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
+
