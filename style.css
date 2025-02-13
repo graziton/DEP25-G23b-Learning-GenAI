@@ -1,199 +1,289 @@
-/* Reset and basic styles */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-  }
-  
-  /* Header and Navigation */
-  header {
-    background-color: #0E1F38;
-    color: #fff;
-    padding: 20px;
-  }
-  
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo h1 {
-    margin: 0;
-  }
-  
-  .menu {
-    list-style: none;
-    display: flex;
-  }
-  
-  .menu li {
-    margin-left: 20px;
-  }
-  
-  .menu a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-  }
-  
-  .menu a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Hero Section */
-  .hero-section {
-    background: url('assets/hero-bg.jpg') no-repeat center center/cover;
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .hero-content {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 40px;
-    border-radius: 5px;
-    text-align: center;
-    color: #fff;
-  }
-  
-  .cta-button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #00aaff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-  }
-  
-  .cta-button:hover {
-    background-color: #008fcc;
-  }
-  
-  /* Footer */
-  footer {
-    background-color: #0E1F38;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-  }
-  
-  /* Categories Section Styles */
-.categories-section {
-    padding: 60px 20px;
-    background-color: #f4f4f4;
-    text-align: center;
-  }
-  
-  .categories-section h2 {
-    margin-bottom: 40px;
-    font-size: 2em;
-    color: #333;
-  }
-  
-  .categories-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .category-card {
-    background: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    width: 220px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
-  }
-  
-  .category-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .category-card img {
-    width: 100%;
-    border-radius: 5px;
-    margin-bottom: 15px;
-  }
-  
-  .category-card h3 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    color: #0E1F38;
-  }
-  
-  .category-card p {
-    font-size: 0.9em;
-    color: #666;
-  }
+/* Enable Native Smooth Scrolling with header offset */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* adjust this value to the height of your header */
+}
 
-  /* Generative AI Tutorials Section Styles */
+/* Reset and Basic Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0;
+}
+
+/* Header and Navigation */
+header {
+  background-color: #0E1F38;
+  color: #fff;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+}
+
+.menu li {
+  margin-left: 20px;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.2s ease;
+}
+
+.menu a:hover {
+  color: #00ffc6;
+}
+
+/* Hero Section */
+.hero-section {
+  background: url('assets/hero-bg.jpg') no-repeat center center/cover;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 40px;
+  border-radius: 8px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+.hero-content h2 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #00ffc6;
+  color: #121212;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+  background-color: #00e6b8;
+  transform: scale(1.03);
+}
+
+/* Footer */
+footer {
+  background-color: #0E1F38;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+/* Categories Section */
+.categories-section {
+  padding: 60px 20px;
+  background-color: #1a1a1a;
+  text-align: center;
+}
+
+.categories-section h2 {
+  margin-bottom: 40px;
+  font-size: 2.2rem;
+  color: #e0e0e0;
+}
+
+/* Categories Grid: 2 cards per row (adjusts responsively) */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.category-card {
+  background: #222;
+  border-radius: 15px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.category-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.category-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #00ffc6;
+}
+
+.category-card p {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* Resources Section */
+.resources-section {
+  padding: 60px 20px;
+  background-color: #1a1a1a;
+  text-align: center;
+}
+
+.resources-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #e0e0e0;
+}
+
+.resources-section p {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* Generic Tutorial Section (for tool pages) */
 .tutorial-section {
-    padding: 60px 20px;
-    background-color: #ffffff;
-    text-align: center;
+  padding: 60px 20px;
+  background-color: #121212;
+  text-align: center;
+}
+
+.tutorial-section h2 {
+  margin-bottom: 40px;
+  font-size: 2.2rem;
+  color: #e0e0e0;
+}
+
+.tutorial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tutorial-card {
+  background: #1e1e1e;
+  border-radius: 15px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.tutorial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.tutorial-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.tutorial-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #00ffc6;
+}
+
+.tutorial-card p {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.tutorial-card a {
+  text-decoration: none;
+  color: #00aaff;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.tutorial-card a:hover {
+  text-decoration: underline;
+  color: #00ffc6;
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  
-  .tutorial-section h2 {
-    margin-bottom: 40px;
-    font-size: 2em;
-    color: #333;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
   .tutorial-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    grid-template-columns: 1fr;
   }
-  
-  .tutorial-card {
-    background: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    width: 220px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
+  .menu li {
+    margin-left: 10px;
   }
-  
-  .tutorial-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .tutorial-card img {
-    width: 100%;
-    border-radius: 5px;
-    margin-bottom: 15px;
-  }
-  
-  .tutorial-card h3 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    color: #0E1F38;
-  }
-  
-  .tutorial-card p {
-    font-size: 0.9em;
-    color: #666;
-  }
-  
-  .tutorial-card a {
-    text-decoration: none;
-    color: #00aaff;
-    font-weight: bold;
-  }
-  
-  .tutorial-card a:hover {
-    text-decoration: underline;
-  }
-  
-  
+}
