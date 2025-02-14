@@ -28,6 +28,25 @@ header {
   z-index: 100;
 }
 
+.toc ul {
+  display: flex;
+  justify-content: center; /* centers the list items */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc {
+  background: #1e1e1e;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  overflow-x: auto;
+  position: sticky;
+  top: 80px;  /* sticky offset: height of header */
+  z-index: 10;  /* ensure it stacks under the header if needed */
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
