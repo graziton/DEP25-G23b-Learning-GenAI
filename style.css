@@ -10,8 +10,8 @@
   --accent-hover: #00e6b8;
   --text-color: #e0e0e0;
   --transition-speed: 0.3s;
-  --header-height: 80px;
-  --toc-extra-width: 80px;
+  --header-height: 63px; /* Reduced from 80px for a more compact header */
+  --toc-extra-width: 70px;
   --scroll-offset: var(--header-height);
 }
 
@@ -56,7 +56,7 @@ body {
 ================================*/
 header {
   background: var(--header-bg);
-  padding: 20px;
+  padding: 10px; /* Reduced padding */
   position: sticky;
   top: 0;
   z-index: 100;
@@ -67,7 +67,7 @@ header {
   align-items: center;
 }
 .logo h1 {
-  font-size: 1.8rem;
+  font-size: 1.6rem; /* Smaller logo size */
 }
 .menu {
   list-style: none;
@@ -335,13 +335,12 @@ footer {
 }
 .tutorial-page .toc {
   position: sticky;
-  top: var(--header-height);
+  top: calc(var(--header-height) - 4px);
   width: calc(100vw - 17px);
   margin-left: calc(50% - (100vw - 17px) / 2);
-  padding: 15px var(--toc-extra-width);
+  padding: 1px var(--toc-extra-width);
   box-sizing: border-box;
   border-radius: 8px;
-  margin-bottom: 30px;
   overflow-x: hidden;
   z-index: 10;
 }

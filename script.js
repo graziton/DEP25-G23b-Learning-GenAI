@@ -17,6 +17,15 @@ document.addEventListener("DOMContentLoaded", () => {
     menuToggle.addEventListener("click", () => menu.classList.toggle("show"));
   }
 
+  // Mobile Menu Auto-Close: Close the menu if clicking outside
+  document.addEventListener("click", (e) => {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const menu = document.querySelector(".menu");
+    if (menu.classList.contains("show") && !menu.contains(e.target) && e.target !== menuToggle) {
+      menu.classList.remove("show");
+    }
+  });
+
   // Fade-in Animations via IntersectionObserver
   const faders = document.querySelectorAll('.fade-in');
   if ("IntersectionObserver" in window) {
@@ -34,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     faders.forEach(fader => fader.classList.add("visible"));
   }
 
-  // Collapsible Sections (Smooth Slide)
+  // Collapsible Sections for FAQ
   document.querySelectorAll(".collapsible").forEach(collapsible => {
     collapsible.addEventListener("click", function() {
       this.classList.toggle("active");
@@ -47,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const backToTop = document.getElementById("backToTop");
   if (backToTop) {
     window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 300) {
+      if (window.pageYOffset > 500) {
         backToTop.classList.add("visible");
       } else {
         backToTop.classList.remove("visible");
