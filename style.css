@@ -11,16 +11,17 @@
   --text-color: #e0e0e0;
   --transition-speed: 0.3s;
   --header-height: 80px;
-  --toc-extra-width: 40px; /* Extra horizontal padding for TOC */
-  --scroll-offset: calc(var(--header-height)); /* Adjust if needed */
+  --toc-extra-width: 40px; /* Extra horizontal padding for TOC content */
+  --scroll-offset: var(--header-height); /* For scroll offset on headings */
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--header-height);
+  overflow-x: hidden; /* Prevent unwanted horizontal scroll */
 }
 
-* {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -34,7 +35,7 @@ body {
 }
 
 /*===============================
-  Accessibility: Skip Link
+  Accessibility
 ================================*/
 .skip-link {
   position: absolute;
@@ -46,7 +47,6 @@ body {
   z-index: 200;
   transition: top 0.3s;
 }
-
 .skip-link:focus {
   top: 0;
 }
@@ -55,46 +55,37 @@ body {
   Header & Navigation
 ================================*/
 header {
-  background-color: var(--header-bg);
-  color: #fff;
+  background: var(--header-bg);
   padding: 20px;
   position: sticky;
   top: 0;
   z-index: 100;
 }
-
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .logo h1 {
   font-size: 1.8rem;
 }
-
 .menu {
   list-style: none;
   display: flex;
   align-items: center;
 }
-
 .menu li {
   margin-left: 20px;
 }
-
 .menu a {
   color: #fff;
   text-decoration: none;
   font-size: 16px;
-  transition: color 0.2s ease;
+  transition: color 0.2s;
 }
-
 .menu a:hover {
   color: var(--accent-color);
 }
-
-/* Mobile Menu Toggle */
 .menu-toggle {
   display: none;
   background: none;
@@ -108,7 +99,6 @@ header {
 ================================*/
 .toc {
   background: var(--card-bg);
-  /* Make TOC span full viewport width and center it */
   width: 100vw;
   left: 50%;
   transform: translateX(-50%);
@@ -119,27 +109,26 @@ header {
   position: sticky;
   top: var(--header-height);
   z-index: 10;
+  /* Override fade-in to only animate opacity */
+  transition: opacity 0.6s ease-out;
 }
-
+.toc.visible {
+  opacity: 1;
+}
 .toc ul {
   display: flex;
   justify-content: center;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+  list-style: none;
 }
-
 .toc li {
   margin-right: 20px;
 }
-
 .toc li a {
   color: var(--accent-color);
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s ease;
+  transition: color 0.3s;
 }
-
 .toc li a:hover {
   color: var(--accent-hover);
   text-decoration: underline;
@@ -156,7 +145,6 @@ header {
   justify-content: center;
   position: relative;
 }
-
 .hero-section::after {
   content: "";
   position: absolute;
@@ -164,10 +152,9 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 1;
 }
-
 .hero-content {
   position: relative;
   z-index: 2;
@@ -177,30 +164,26 @@ header {
   opacity: 0;
   animation: fadeIn 1s forwards;
 }
-
 .hero-content h2 {
   font-size: 2.8rem;
   margin-bottom: 20px;
 }
-
 .hero-content p {
   font-size: 1.2rem;
   margin-bottom: 20px;
 }
-
 .cta-button {
   display: inline-block;
   padding: 12px 25px;
-  background-color: var(--accent-color);
+  background: var(--accent-color);
   color: var(--body-bg);
   text-decoration: none;
   border-radius: 8px;
   font-weight: bold;
-  transition: background-color var(--transition-speed) ease, transform 0.2s ease;
+  transition: background var(--transition-speed) ease, transform 0.2s ease;
 }
-
 .cta-button:hover {
-  background-color: var(--accent-hover);
+  background: var(--accent-hover);
   transform: scale(1.03);
 }
 
@@ -208,7 +191,7 @@ header {
   Footer
 ================================*/
 footer {
-  background-color: var(--footer-bg);
+  background: var(--footer-bg);
   color: #fff;
   text-align: center;
   padding: 10px;
@@ -216,7 +199,7 @@ footer {
 }
 
 /*===============================
-  Utility Classes & Layout
+  Utility & Layout
 ================================*/
 .container {
   max-width: 1200px;
@@ -225,72 +208,55 @@ footer {
 }
 
 /*===============================
-  Categories Section
+  Categories & Resources Sections
 ================================*/
-.categories-section {
+.categories-section,
+.resources-section {
   padding: 60px 20px;
-  background-color: #1a1a1a;
+  background: #1a1a1a;
   text-align: center;
 }
-
-.categories-section h2 {
-  margin-bottom: 40px;
+.categories-section h2,
+.resources-section h2 {
   font-size: 2.2rem;
+  margin-bottom: 40px;
   color: var(--text-color);
 }
-
-.categories-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.category-card {
-  background: #222;
-  border-radius: 15px;
-  padding: 20px;
-  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-  text-align: left;
-}
-
-.category-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-}
-
-.category-card img {
-  width: 100%;
-  border-radius: 12px;
-  margin-bottom: 15px;
-}
-
-.category-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: var(--accent-color);
-}
-
-.category-card p {
+.resources-section p {
   font-size: 1rem;
   color: #ccc;
 }
 
 /*===============================
-  Resources Section
+  Categories Grid
 ================================*/
-.resources-section {
-  padding: 60px 20px;
-  background-color: #1a1a1a;
-  text-align: center;
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
-
-.resources-section h2 {
-  font-size: 2.2rem;
-  margin-bottom: 20px;
-  color: var(--text-color);
+.category-card {
+  background: #222;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: left;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
-
-.resources-section p {
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+.category-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+.category-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--accent-color);
+}
+.category-card p {
   font-size: 1rem;
   color: #ccc;
 }
@@ -300,59 +266,50 @@ footer {
 ================================*/
 .tutorial-section {
   padding: 60px 20px;
-  background-color: var(--body-bg);
+  background: var(--body-bg);
   text-align: center;
 }
-
 .tutorial-section h2 {
-  margin-bottom: 40px;
   font-size: 2.2rem;
+  margin-bottom: 40px;
   color: var(--text-color);
 }
-
 .tutorial-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
-
 .tutorial-card {
   background: var(--card-bg);
   border-radius: 15px;
   padding: 20px;
-  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
   text-align: left;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
-
 .tutorial-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
 }
-
 .tutorial-card img {
   width: 100%;
   border-radius: 12px;
   margin-bottom: 15px;
 }
-
 .tutorial-card h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
   color: var(--accent-color);
 }
-
 .tutorial-card p {
   font-size: 1rem;
   color: #ccc;
 }
-
 .tutorial-card a {
   text-decoration: none;
   color: #00aaff;
   font-weight: bold;
-  transition: color 0.2s ease;
+  transition: color 0.2s;
 }
-
 .tutorial-card a:hover {
   text-decoration: underline;
   color: var(--accent-color);
@@ -361,7 +318,6 @@ footer {
 /*===============================
   Detailed Tutorial Page Overrides
 ================================*/
-/* Targets pages with both "tutorial-section" and "tutorial-page" classes (e.g., chatgpt.html) */
 .tutorial-page section p,
 .tutorial-page section ul,
 .tutorial-page section ol {
@@ -369,9 +325,36 @@ footer {
   font-size: 1.2rem;
   margin-bottom: 20px;
 }
-
 .tutorial-page section li {
   margin-bottom: 5px;
+}
+.tutorial-page section h2,
+.tutorial-page section h3,
+.tutorial-page section h4 {
+  text-align: left;
+  scroll-margin-top: var(--scroll-offset);
+}
+
+/* Collapsible Button & Content */
+.tutorial-page .collapsible {
+  background: #222;
+  color: #00ffc6;
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  width: 100%;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  outline: none;
+  transition: background var(--transition-speed) ease;
+}
+.tutorial-page .collapsible:after {
+  content: "\002B";
+  color: #00ffc6;
+  float: right;
+  margin-left: 5px;
 }
 
 .tutorial-page .toc {
@@ -387,41 +370,18 @@ footer {
   z-index: 10;
 }
 
-/* Ensure headings remain as defined globally but are left aligned and have a scroll offset */
-.tutorial-page section h2,
-.tutorial-page section h3,
-.tutorial-page section h4 {
-  text-align: left;
-  scroll-margin-top: var(--scroll-offset);
+.toc.fade-in {
+  transition: opacity 0.5s ease-out;
+  /* Do not animate transform – keep your centering transform fixed */
 }
 
-/* Override collapsible button styles for detailed tutorial pages */
-.tutorial-page .collapsible {
-  background-color: #222;
-  color: #00ffc6;
-  cursor: pointer;
-  padding: 10px;
-  border: none;
-  width: 100%;
-  border-radius: 8px;
-  text-align: left;
-  outline: none;
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-}
-
-.tutorial-page .collapsible:after {
-  content: "\002B";
-  color: #00ffc6;
-  float: right;
-  margin-left: 5px;
+.toc.fade-in.visible {
+  opacity: 1;
 }
 
 .tutorial-page .collapsible.active:after {
   content: "\2212";
 }
-
-/* Collapsible Content Transition */
 .content {
   max-height: 0;
   overflow: hidden;
@@ -431,43 +391,32 @@ footer {
   max-height: 90px; /* Adjust as needed */
 }
 
-/* Ensure the back-to-top button stays fixed at bottom-right on tutorial pages */
-.tutorial-page .back-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 100;
-}
-
-/*===============================
-  Back-to-Top Button (Global)
-================================*/
+/* Back-to-Top Button */
+.tutorial-page .back-to-top,
 .back-to-top {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: var(--accent-color);
+  background: var(--accent-color);
   color: var(--body-bg);
   padding: 10px 15px;
   border-radius: 5px; /* Rectangle with smooth edges */
   text-align: center;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-  transition: transform var(--transition-speed) ease, background-color var(--transition-speed) ease, opacity var(--transition-speed) ease;
   font-size: 14px;
   z-index: 100;
+  transition: transform var(--transition-speed) ease, background var(--transition-speed) ease, opacity var(--transition-speed) ease;
   opacity: 0;
   visibility: hidden;
 }
-
 .back-to-top.visible {
   opacity: 1;
   visibility: visible;
 }
-
 .back-to-top:hover {
   transform: scale(1.1);
-  background-color: var(--accent-hover);
+  background: var(--accent-hover);
 }
 
 /*===============================
@@ -483,12 +432,10 @@ footer {
     transform: translateY(0);
   }
 }
-
 .fade-in {
   opacity: 0;
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
@@ -511,7 +458,6 @@ footer {
   .menu li {
     margin-left: 10px;
   }
-  /* Mobile Menu: Show Toggle, Hide Menu by Default */
   .menu-toggle {
     display: block;
   }
@@ -519,7 +465,7 @@ footer {
     display: none;
     flex-direction: column;
     width: 100%;
-    background-color: var(--header-bg);
+    background: var(--header-bg);
     position: absolute;
     top: 100%;
     left: 0;

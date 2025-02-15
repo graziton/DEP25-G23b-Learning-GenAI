@@ -37,11 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }, appearOptions);
     faders.forEach(fader => appearOnScroll.observe(fader));
   } else {
-    // Fallback for browsers without IntersectionObserver support
     faders.forEach(fader => fader.classList.add("visible"));
   }
 
-  // Collapsible Sections for Tutorial Pages (Smooth Slide)
+  // Collapsible Sections (Smooth Slide)
   const collapsibles = document.querySelectorAll(".collapsible");
   collapsibles.forEach(collapsible => {
     collapsible.addEventListener("click", function() {
