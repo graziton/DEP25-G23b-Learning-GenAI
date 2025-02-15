@@ -5,14 +5,14 @@
   --header-bg: #0E1F38;
   --footer-bg: #0E1F38;
   --body-bg: #121212;
-  --card-bg: #1e1e1e;
+  --card-bg: #1e1f1e;
   --accent-color: #00ffc6;
   --accent-hover: #00e6b8;
   --text-color: #e0e0e0;
   --transition-speed: 0.3s;
   --header-height: 80px;
-  --toc-extra-width: 30px; /* New: extra horizontal padding for TOC */
-  --scroll-offset: calc(var(--header-height) + 50px); /* For headings scroll offset */
+  --toc-extra-width: 40px; /* Extra horizontal padding for TOC */
+  --scroll-offset: calc(var(--header-height)); /* Adjust if needed */
 }
 
 html {
@@ -108,10 +108,14 @@ header {
 ================================*/
 .toc {
   background: var(--card-bg);
+  /* Make TOC span full viewport width and center it */
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 15px var(--toc-extra-width);
   border-radius: 8px;
   margin-bottom: 30px;
-  overflow-x: auto;
+  overflow-x: hidden;
   position: sticky;
   top: var(--header-height);
   z-index: 10;
@@ -370,12 +374,24 @@ footer {
   margin-bottom: 5px;
 }
 
-/* Ensure headings remain as defined globally but are left aligned */
+.tutorial-page .toc {
+  position: sticky;
+  top: var(--header-height);
+  width: calc(100vw - 17px); /* subtract an estimated scrollbar width (17px) */
+  margin-left: calc(50% - (100vw - 17px) / 2);
+  padding: 15px var(--toc-extra-width);
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  overflow-x: hidden;
+  z-index: 10;
+}
+
+/* Ensure headings remain as defined globally but are left aligned and have a scroll offset */
 .tutorial-page section h2,
 .tutorial-page section h3,
 .tutorial-page section h4 {
   text-align: left;
-  /* Add scroll margin to ensure headings are not hidden under header+TOC */
   scroll-margin-top: var(--scroll-offset);
 }
 
@@ -412,7 +428,7 @@ footer {
   transition: max-height 0.4s ease-out;
 }
 .content.open {
-  max-height: 90px; /* Adjust as needed to fit your content */
+  max-height: 90px; /* Adjust as needed */
 }
 
 /* Ensure the back-to-top button stays fixed at bottom-right on tutorial pages */
@@ -433,13 +449,20 @@ footer {
   background-color: var(--accent-color);
   color: var(--body-bg);
   padding: 10px 15px;
-  border-radius: 5px;  /* Changed from circle to rectangle */
+  border-radius: 5px; /* Rectangle with smooth edges */
   text-align: center;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-  transition: transform var(--transition-speed) ease, background-color var(--transition-speed) ease;
+  transition: transform var(--transition-speed) ease, background-color var(--transition-speed) ease, opacity var(--transition-speed) ease;
   font-size: 14px;
   z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
 .back-to-top:hover {
