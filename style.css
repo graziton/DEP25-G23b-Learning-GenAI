@@ -11,14 +11,14 @@
   --text-color: #e0e0e0;
   --transition-speed: 0.3s;
   --header-height: 80px;
-  --toc-extra-width: 40px; /* Extra horizontal padding for TOC content */
-  --scroll-offset: var(--header-height); /* For scroll offset on headings */
+  --toc-extra-width: 80px;
+  --scroll-offset: var(--header-height);
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--header-height);
-  overflow-x: hidden; /* Prevent unwanted horizontal scroll */
+  overflow-x: hidden;
 }
 
 *, *::before, *::after {
@@ -109,11 +109,7 @@ header {
   position: sticky;
   top: var(--header-height);
   z-index: 10;
-  /* Override fade-in to only animate opacity */
   transition: opacity 0.6s ease-out;
-}
-.toc.visible {
-  opacity: 1;
 }
 .toc ul {
   display: flex;
@@ -334,6 +330,21 @@ footer {
   text-align: left;
   scroll-margin-top: var(--scroll-offset);
 }
+.tutorial-page section {
+  scroll-margin-top: var(--header-height);
+}
+.tutorial-page .toc {
+  position: sticky;
+  top: var(--header-height);
+  width: calc(100vw - 17px);
+  margin-left: calc(50% - (100vw - 17px) / 2);
+  padding: 15px var(--toc-extra-width);
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  overflow-x: hidden;
+  z-index: 10;
+}
 
 /* Collapsible Button & Content */
 .tutorial-page .collapsible {
@@ -356,29 +367,6 @@ footer {
   float: right;
   margin-left: 5px;
 }
-
-.tutorial-page .toc {
-  position: sticky;
-  top: var(--header-height);
-  width: calc(100vw - 17px); /* subtract an estimated scrollbar width (17px) */
-  margin-left: calc(50% - (100vw - 17px) / 2);
-  padding: 15px var(--toc-extra-width);
-  box-sizing: border-box;
-  border-radius: 8px;
-  margin-bottom: 30px;
-  overflow-x: hidden;
-  z-index: 10;
-}
-
-.toc.fade-in {
-  transition: opacity 0.5s ease-out;
-  /* Do not animate transform – keep your centering transform fixed */
-}
-
-.toc.fade-in.visible {
-  opacity: 1;
-}
-
 .tutorial-page .collapsible.active:after {
   content: "\2212";
 }
@@ -388,11 +376,12 @@ footer {
   transition: max-height 0.4s ease-out;
 }
 .content.open {
-  max-height: 90px; /* Adjust as needed */
+  max-height: 90px;
 }
 
-/* Back-to-Top Button */
-.tutorial-page .back-to-top,
+/*===============================
+  Back-to-Top Button
+================================*/
 .back-to-top {
   position: fixed;
   bottom: 20px;
@@ -400,7 +389,7 @@ footer {
   background: var(--accent-color);
   color: var(--body-bg);
   padding: 10px 15px;
-  border-radius: 5px; /* Rectangle with smooth edges */
+  border-radius: 5px;
   text-align: center;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0,0,0,0.5);
@@ -423,14 +412,8 @@ footer {
   Animations
 ================================*/
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 .fade-in {
   opacity: 0;
@@ -445,22 +428,12 @@ footer {
   Responsive Styles
 ================================*/
 @media (max-width: 768px) {
-  .hero-content h2 {
-    font-size: 2rem;
-  }
-  .hero-content p {
-    font-size: 1rem;
-  }
+  .hero-content h2 { font-size: 2rem; }
+  .hero-content p { font-size: 1rem; }
   .categories-grid,
-  .tutorial-grid {
-    grid-template-columns: 1fr;
-  }
-  .menu li {
-    margin-left: 10px;
-  }
-  .menu-toggle {
-    display: block;
-  }
+  .tutorial-grid { grid-template-columns: 1fr; }
+  .menu li { margin-left: 10px; }
+  .menu-toggle { display: block; }
   .menu {
     display: none;
     flex-direction: column;
@@ -470,11 +443,6 @@ footer {
     top: 100%;
     left: 0;
   }
-  .menu li {
-    margin: 10px 0;
-    text-align: center;
-  }
-  .menu.show {
-    display: flex;
-  }
+  .menu li { margin: 10px 0; text-align: center; }
+  .menu.show { display: flex; }
 }
