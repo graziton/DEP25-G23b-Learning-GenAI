@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Fade-in Animations via IntersectionObserver
   const faders = document.querySelectorAll('.fade-in');
   if ("IntersectionObserver" in window) {
-    const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" },
+    const appearOptions = { threshold: 0.2, rootMargin: "0px 0px 0px 0px" },
           observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
               if (entry.isIntersecting) {
