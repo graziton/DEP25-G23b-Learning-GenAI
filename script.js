@@ -67,3 +67,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+document.addEventListener("click", (e) => {
+  const dropdown = document.querySelector(".navbar .menu li.dropdown");
+  if (dropdown && !dropdown.contains(e.target)) {
+    // For mobile: remove any "open" class if used (if dropdown open state is toggled via JS)
+    dropdown.classList.remove("open");
+  }
+});

@@ -407,6 +407,79 @@ footer {
   background: var(--accent-hover);
 }
 
+/* Dropdown Menu Styles */
+.navbar .menu li.dropdown {
+  position: relative;
+}
+
+.navbar .menu li.dropdown > a::after {
+  content: " ▼";
+  font-size: 0.8em;
+  margin-left: 5px;
+}
+
+.navbar .menu li .dropdown-menu {
+  position: absolute;
+  background: var(--card-bg);
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  top: 100%;
+  left: 0;
+  border-radius: 8px;
+  min-width: 150px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transform: perspective(500px) rotateX(-90deg); /* Roll in from the top */
+  opacity: 0;
+  visibility: hidden;
+  transform-origin: top;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  z-index: 100;
+}
+
+.navbar .menu li.dropdown:hover .dropdown-menu {
+  transform: perspective(500px) rotateX(0deg); /* Ends in natural position */
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Dropdown Menu Item Styles */
+.navbar .menu li .dropdown-menu li {
+  padding: 5px 15px;
+}
+
+.navbar .menu li .dropdown-menu li a {
+  color: var(--text-color);
+  text-decoration: none;
+  display: block;
+  transition: color 0.2s;
+}
+
+.navbar .menu li .dropdown-menu li a:hover {
+  color: var(--accent-color);
+}
+
+/* Breadcrumb Styles */
+.breadcrumb {
+  background: var(--card-bg);
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 1200px;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: var(--accent-color);
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+  color: var(--accent-hover);
+}
+
 /*===============================
   Animations
 ================================*/
