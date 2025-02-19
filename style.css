@@ -241,7 +241,7 @@ footer {
 }
 
 /*===============================
-  Generic Tutorial Section
+  Tutorial Section
 ================================*/
 .tutorial-section {
   padding: 60px 20px;
@@ -295,7 +295,7 @@ footer {
 }
 
 /*===============================
-  Detailed Tutorial Page Overrides
+  Tutorial Page
 ================================*/
 .tutorial-page section p,
 .tutorial-page section ul,
@@ -390,7 +390,9 @@ footer {
   background: var(--accent-hover);
 }
 
-/* Dropdown Menu Styles */
+/*===============================
+  Dropdown Menu for Header
+================================*/
 .navbar .menu li.dropdown {
   position: relative;
 }
@@ -442,7 +444,9 @@ footer {
   color: var(--accent-color);
 }
 
-/* Breadcrumb Styles */
+/*===============================
+  Breadcrumb Navigation
+================================*/
 .breadcrumb {
   background: var(--card-bg);
   padding: 10px 20px;
