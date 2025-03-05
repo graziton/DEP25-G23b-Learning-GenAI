@@ -1,0 +1,38 @@
+.perplexity-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.perplexity-section {
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.perplexity-section h2 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.perplexity-section p {
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.perplexity-section pre {
+    background: #2a2a2a;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    color: #00ff9d;
+}
+
+.perplexity-section code {
+    background: #2a2a2a;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: monospace;
+    color: #00ff9d;
+}
