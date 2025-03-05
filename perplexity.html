@@ -6,6 +6,7 @@
     <title>Perplexity AI Tutorial - Mastering AI-Powered Research and Discovery</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="ai-chat.css">
 </head>
 <body>
     <!-- Header -->
@@ -249,6 +250,12 @@ print(response)
                 <p>Now, take what you’ve learned, experiment with your own prompts, and see how Perplexity AI can transform your daily tasks. Happy exploring and enjoy mastering Perplexity AI!</p>
             </section>
 
+            <section id="interactive-chat" class="fade-in">
+                <h2>Try Perplexity AI</h2>
+                <p>Experience Perplexity AI directly in your browser. Start by entering your API key.</p>
+                <div id="ai-chat-mount-point"></div>
+            </section>
+
         </div>
     </main>
 
@@ -258,5 +265,11 @@ print(response)
             <p>&copy; 2025 Learn AI. All Rights Reserved.</p>
         </div>
     </footer>
+    <script src="ai-chat.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            aiChat.initializeChat('perplexity-ai');
+        });
+    </script>
 </body>
 </html>

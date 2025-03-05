@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="style.css">
   <!-- Google Font: Roboto -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ai-chat.css">
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -105,6 +106,13 @@
         </p>
       </div>
     </section>
+
+    <!-- AI Chat Section -->
+    <section id="interactive-chat" class="fade-in">
+        <h2>Try AI Chat</h2>
+        <p>Experience AI chat directly in your browser. Start by entering your API key.</p>
+        <div id="ai-chat-mount-point"></div>
+    </section>
   </main>
 
   <!-- Footer -->
@@ -113,5 +121,11 @@
       <p>&copy; 2025 Learn AI. All Rights Reserved.</p>
     </div>
   </footer>
+  <script src="ai-chat.js"></script>
+  <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          aiChat.initializeChat('gpt-4');
+      });
+  </script>
 </body>
 </html>
