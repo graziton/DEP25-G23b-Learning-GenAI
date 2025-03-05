@@ -87,12 +87,9 @@ header {
   border-radius: 8px;
   margin-bottom: 30px;
   overflow-x: auto;
-  position: sticky;
-  top: var(--header-height);
-  z-index: 10;
+  position: static; /* Make TOC static */
   display: flex;
   justify-content: center;
-  transform: none; /* Remove transform if not needed */
 }
 
 .toc ul {
@@ -118,6 +115,7 @@ header {
   color: var(--accent-hover);
   text-decoration: underline;
 }
+
 /*===============================
   Hero Section
 ================================*/
@@ -322,12 +320,10 @@ footer {
   scroll-margin-top: var(--header-height);
 }
 .tutorial-page .toc {
-  position: sticky;
-  top: calc(var(--header-height) - 4px);
-  width: calc(100vw - 17px);
-  margin-left: calc(50% - (100vw - 17px) / 2);
-  padding: 1px var(--toc-extra-width);
-  box-sizing: border-box;
+  position: static; /* Make TOC static */
+  width: 100%;
+  margin: 0 auto;
+  padding: 15px 20px;
   border-radius: 8px;
   overflow-x: hidden;
   z-index: 10;
