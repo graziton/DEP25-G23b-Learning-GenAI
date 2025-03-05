@@ -421,8 +421,29 @@ print(response.choices[0].message['content'])
         </ul>
         <p>Now, take what you’ve learned, experiment with your own prompts, and see how ChatGPT can transform your daily tasks. Happy exploring and enjoy mastering ChatGPT!</p>
       </section>
+
+      <!-- Interactive Chat Interface -->
+      <section id="interactive-chat" class="fade-in">
+        <h2>Try ChatGPT</h2>
+        <p>Experience ChatGPT directly in your browser. Start by entering your OpenAI API key.</p>
+        
+        <!-- Mount point for the chat interface -->
+        <div id="ai-chat-mount-point"></div>
+      </section>
+
     </div>
   </main>
+
+  <!-- Include marked.js for markdown parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  
+  <!-- Chat interface scripts -->
+  <script src="ai-chat.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      aiChat.initializeChat('gpt-3.5-turbo');
+    });
+  </script>
 
   <!-- Fixed Back-to-Top Button -->
   <div class="back-to-top" id="backToTop">Back to Top</div>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat Feature</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="chat-interface">
+        <!-- Chat Messages -->
+        <div class="chat-messages" id="chatMessages"></div>
+        
+        <!-- User Input -->
+        <div class="chat-input-container">
+            <textarea id="userInput" placeholder="Type your message..."></textarea>
+            <button id="sendMessage">Send</button>
+        </div>
+
+        <!-- Parameter Controls (temperature, max_tokens, etc.) -->
+        <div class="chat-params">
+            <label for="temperature">Temperature:</label>
+            <input id="temperature" type="number" step="0.1" min="0" max="2" placeholder="1.0">
+        
+            <label for="maxTokens">Max Tokens:</label>
+            <input id="maxTokens" type="number" min="1" placeholder="256">
+        </div>
+
+        <!-- API Key Section -->
+        <div class="api-key-section">
+            <label for="apiKeyInput">API Key:</label>
+            <input type="password" id="apiKeyInput" placeholder="Enter your API key">
+            <button id="saveApiKey">Save API Key</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // On page load, initialize the chat for the specific model
+        document.addEventListener('DOMContentLoaded', () => {
+            // For each page, pass the respective model name, e.g., "chatgpt", "claude", "gemini"
+            aiChat.initializeChat('chatgpt');
+        });
+    </script>
+</body>
+</html>
