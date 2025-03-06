@@ -316,9 +316,9 @@ footer {
   text-align: left;
   scroll-margin-top: var(--scroll-offset);
 }
-.tutorial-page section {
-  scroll-margin-top: var(--header-height);
-}
+/*.tutorial-page section {
+  scroll-margin-top: var(--header-height);  if using fixed header
+}*/
 .tutorial-page .toc {
   position: static; /* Make TOC static */
   width: 100%;
