@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preloaded Prompts</title>
+    <title>Comprehensive AI Prompts</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
@@ -15,74 +15,220 @@
         h1 {
             text-align: center;
             color: #333;
+            margin-bottom: 40px;
         }
         .category {
-            margin-bottom: 20px;
+            margin-bottom: 40px;
         }
         .category h2 {
-            color: #555;
+            color: #333;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
         }
         .prompt-list {
             list-style-type: none;
             padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .prompt-list li {
             background-color: #fff;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: calc(33% - 40px);
+            box-sizing: border-box;
+            position: relative;
+        }
+        .prompt-list li:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .prompt-text {
             margin-bottom: 10px;
-            padding: 10px;
+            font-size: 1rem;
+            color: #555;
+        }
+        .copy-button {
+            background-color: #00aaff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
             border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+        }
+        .copy-button:hover {
+            background-color: #008ecc;
+        }
+        @media (max-width: 768px) {
+            .prompt-list li {
+                width: calc(50% - 40px);
+            }
+        }
+        @media (max-width: 480px) {
+            .prompt-list li {
+                width: calc(100% - 40px);
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Preloaded Prompts</h1>
+    <h1>Comprehensive AI Prompts</h1>
 
+    <!-- Housewives -->
     <div class="category">
-        <h2>Students</h2>
+        <h2>Housewives</h2>
         <ul class="prompt-list">
-            <li>Prompt for writing an essay</li>
-            <li>Prompt for solving math problems</li>
-            <!-- Add more prompts -->
+            <li>
+                <div class="prompt-text">I want to cook healthy dinners for a family of four for one week. Provide a daily meal plan (including side dishes) and a consolidated grocery list. We prefer Mediterranean-style meals and need approximately 2,000 calories per day per adult. Include time-saving cooking tips or meal-prep strategies.</div>
+                <button class="copy-button" onclick="copyPrompt('I want to cook healthy dinners for a family of four for one week. Provide a daily meal plan (including side dishes) and a consolidated grocery list. We prefer Mediterranean-style meals and need approximately 2,000 calories per day per adult. Include time-saving cooking tips or meal-prep strategies.')">Copy</button>
+            </li>
+            <li>
+                <div class="prompt-text">Create a weekly cleaning schedule for a medium-sized house with three bedrooms and two bathrooms. Break down tasks by day and suggest efficient methods or supplies for each chore.</div>
+                <button class="copy-button" onclick="copyPrompt('Create a weekly cleaning schedule for a medium-sized house with three bedrooms and two bathrooms. Break down tasks by day and suggest efficient methods or supplies for each chore.')">Copy</button>
+            </li>
+            <li>
+                <div class="prompt-text">Help me create a simple monthly budget for a family of five with a total monthly income of $5,000. We have the following expenses: mortgage, utilities, groceries, children's extracurriculars, and savings. Categorize the expenses and recommend ways to reduce spending where possible.</div>
+                <button class="copy-button" onclick="copyPrompt('Help me create a simple monthly budget for a family of five with a total monthly income of $5,000. We have the following expenses: mortgage, utilities, groceries, children\'s extracurriculars, and savings. Categorize the expenses and recommend ways to reduce spending where possible.')">Copy</button>
+            </li>
+            <li>
+                <div class="prompt-text">I am planning a birthday party for my 10-year-old child. Suggest a theme, menu, activities, and a timeline for the event. Also suggest cost-effective decoration ideas and how to keep 10 kids entertained for three hours.</div>
+                <button class="copy-button" onclick="copyPrompt('I am planning a birthday party for my 10-year-old child. Suggest a theme, menu, activities, and a timeline for the event. Also suggest cost-effective decoration ideas and how to keep 10 kids entertained for three hours.')">Copy</button>
+            </li>
+            <li>
+                <div class="prompt-text">Provide a step-by-step guide on basic plumbing maintenance for a home, including how to check for leaks, unclog drains, and safely fix minor issues. Mention necessary tools and any safety precautions.</div>
+                <button class="copy-button" onclick="copyPrompt('Provide a step-by-step guide on basic plumbing maintenance for a home, including how to check for leaks, unclog drains, and safely fix minor issues. Mention necessary tools and any safety precautions.')">Copy</button>
+            </li>
         </ul>
     </div>
 
+    <!-- Engineers -->
     <div class="category">
-        <h2>Medical</h2>
+        <h2>Engineers</h2>
         <ul class="prompt-list">
-            <li>Prompt for summarizing medical articles</li>
-            <li>Prompt for patient diagnosis</li>
-            <!-- Add more prompts -->
+            <li>
+                <div class="prompt-text">Here is a Python function I wrote. It’s meant to parse a JSON file and print specific data fields, but it keeps failing with a TypeError. Please help me identify the bug and optimize the code: [Paste code snippet].</div>
+                <button class="copy-button" onclick="copyPrompt('Here is a Python function I wrote. It’s meant to parse a JSON file and print specific data fields, but it keeps failing with a TypeError. Please help me identify the bug and optimize the code: [Paste code snippet].')">Copy</button>
+            </li>
+            <li>
+                <div class="prompt-text">I’m designing a microservices architecture for an e-commerce platform. Outline the main components (authentication, catalog, payment, etc.) and suggest suitable communication patterns like REST or message queues. Also propose best practices for data handling to ensure scalability.</div>
+                <button class="copy-button" onclick="copyPrompt('I’m designing a microservices architecture for an e-commerce platform. Outline the main components (authentication, catalog, payment, etc.) and suggest suitable communication patterns like REST or message queues. Also propose best practices for data handling to ensure scalability.')">Copy</button>
+            </li>
+            <li>
+                <div class="prompt-text">Explain the concept of concurrency vs. parallelism in simple terms for a non-technical audience. Provide basic examples, real-world analogies, and common scenarios where each is used.</div>
+                <button class="copy-button" onclick="copyPrompt('Explain the concept of concurrency vs. parallelism in simple terms for a non-technical audience. Provide basic examples, real-world analogies, and common scenarios where each is used.')">Copy</button>
+            </li>
+            <li>
+                <div class="prompt-text">I need to design a simple IoT device that measures temperature and humidity and sends data to a central server. Suggest hardware components like sensors and microcontrollers, and outline the communication protocol. Also include an approximate cost estimate.</div>
+                <button class="copy-button" onclick="copyPrompt('I need to design a simple IoT device that measures temperature and humidity and sends data to a central server. Suggest hardware components like sensors and microcontrollers, and outline the communication protocol. Also include an approximate cost estimate.')">Copy</button>
+            </li>
+            <li>
+                <div class="prompt-text">Provide a step-by-step approach to building a linear regression model in Python with scikit-learn. Include data cleaning, feature selection, training, testing, and evaluation metrics. If possible, offer a sample code structure.</div>
+                <button class="copy-button" onclick="copyPrompt('Provide a step-by-step approach to building a linear regression model in Python with scikit-learn. Include data cleaning, feature selection, training, testing, and evaluation metrics. If possible, offer a sample code structure.')">Copy</button>
+            </li>
+            <li>
+                <div class="prompt-text">I’m developing an industrial control system. List the key safety regulations (like ISO or IEC standards) I need to consider for machine operation. Suggest ways to design system redundancies and fail-safes to meet these standards.</div>
+                <button class="copy-button" onclick="copyPrompt('I’m developing an industrial control system. List the key safety regulations (like ISO or IEC standards) I need to consider for machine operation. Suggest ways to design system redundancies and fail-safes to meet these standards.')">Copy</button>
+            </li>
         </ul>
     </div>
 
+    <!-- Doctors -->
     <div class="category">
-        <h2>Engineering</h2>
+        <h2>Doctors</h2>
         <ul class="prompt-list">
-            <li>Prompt for technical report writing</li>
-            <li>Prompt for project planning</li>
-            <!-- Add more prompts -->
+            <li>
+                <div class="prompt-text">Summarize the key findings of this research article on Type 2 Diabetes management: [Paste excerpt]. Focus on patient outcomes, limitations, and potential implications for clinical practice.</div>
+                <button class="copy-button" onclick="copyPrompt('Summarize the key findings of this research article on Type 2 Diabetes management: [Paste excerpt]. Focus on patient outcomes, limitations, and potential implications for clinical practice.')">Copy</button>
+            </li>
+            <li>
+                <div class="prompt-text">Create a patient-friendly handout explaining common causes of back pain and basic at-home exercises for relief. Use simple language and bullet points. Include cautions about when to see a doctor.</div>
+                <button class="copy-button" onclick="copyPrompt('Create a patient-friendly handout explaining common causes of back pain and basic at-home exercises for relief. Use simple language and bullet points. Include cautions about when to see a doctor.')">Copy</button>
+            </li>
+            <li>
+                <div class="prompt-text">Draft an internal memo to my clinic staff outlining new COVID-19 patient-check-in protocols. Include necessary employee actions, safety measures, and a timeline for implementation.</div>
+                <button class="copy-button" onclick="copyPrompt('Draft an internal memo to my clinic staff outlining new COVID-19 patient-check-in protocols. Include necessary employee actions, safety measures, and a timeline for implementation.')">Copy</button>
+            </li>
+            <li>
+                <div class="prompt-text">Suggest strategies for a public health campaign to increase vaccination rates among young adults. Include both online and community outreach methods, possible partnerships, and budget considerations.</div>
+                <button class="copy-button" onclick="copyPrompt('Suggest strategies for a public health campaign to increase vaccination rates among young adults. Include both online and community outreach methods, possible partnerships, and budget considerations.')">Copy</button>
+            </li>
+            <li>
+                <div class="prompt-text">I want to engage colleagues in an online discussion about a rare case of [Condition]. Propose an outline for a presentation that includes background, case details, differential diagnosis, management, and open questions. Include references to notable journal articles.</div>
+                <button class="copy-button" onclick="copyPrompt('I want to engage colleagues in an online discussion about a rare case of [Condition]. Propose an outline for a presentation that includes background, case details, differential diagnosis, management, and open questions. Include references to notable journal articles.')">Copy</button>
+            </li>
         </ul>
     </div>
 
+    <!-- Office Workers -->
     <div class="category">
         <h2>Office Workers</h2>
         <ul class="prompt-list">
-            <li>Prompt for email drafting</li>
-            <li>Prompt for meeting summaries</li>
-            <!-- Add more prompts -->
+            <li>
+                <div class="prompt-text">Suggest a productivity system for someone juggling multiple small projects simultaneously. Include daily task prioritization, time-blocking strategies, and a method for tracking progress.</div>
+                <button class="copy-button" onclick="copyPrompt('Suggest a productivity system for someone juggling multiple small projects simultaneously. Include daily task prioritization, time-blocking strategies, and a method for tracking progress.')">Copy</button>
+            </li>
+            <li>
+                <div class="prompt-text">Draft a professional email to my manager requesting additional training opportunities related to team leadership. Mention how the training will benefit our current projects and overall team well-being.</div>
+                <button class="copy-button" onclick="copyPrompt('Draft a professional email to my manager requesting additional training opportunities related to team leadership. Mention how the training will benefit our current projects and overall team well-being.')">Copy</button>
+            </li>
+            <li>
+                <div class="prompt-text">Write a concise meeting agenda for a weekly team check-in focused on project updates, resource allocation, and potential challenges. The meeting is 30 minutes long, and we have a team of five.</div>
+                <button class="copy-button" onclick="copyPrompt('Write a concise meeting agenda for a weekly team check-in focused on project updates, resource allocation, and potential challenges. The meeting is 30 minutes long, and we have a team of five.')">Copy</button>
+            </li>
+            <li>
+                <div class="prompt-text">Suggest a 6-month plan to improve leadership and project management skills. Provide recommended online courses, books, and daily practices to help me become a more effective leader.</div>
+                <button class="copy-button" onclick="copyPrompt('Suggest a 6-month plan to improve leadership and project management skills. Provide recommended online courses, books, and daily practices to help me become a more effective leader.')">Copy</button>
+            </li>
+            <li>
+                <div class="prompt-text">Give me steps to resolve a conflict between two team members who disagree on the project approach. Include strategies for facilitating a respectful dialogue, finding common ground, and following up.</div>
+                <button class="copy-button" onclick="copyPrompt('Give me steps to resolve a conflict between two team members who disagree on the project approach. Include strategies for facilitating a respectful dialogue, finding common ground, and following up.')">Copy</button>
+            </li>
         </ul>
     </div>
 
+    <!-- Creative -->
     <div class="category">
-        <h2>Household</h2>
+        <h2>Creative</h2>
         <ul class="prompt-list">
-            <li>Prompt for meal planning</li>
-            <li>Prompt for budgeting</li>
-            <!-- Add more prompts -->
+            <li>
+                <div class="prompt-text">Help me develop a fantasy novel plot about a hidden kingdom in a parallel universe. Outline three main characters, their goals, conflicts, and how they evolve. Include a major plot twist in the middle.</div>
+                <button class="copy-button" onclick="copyPrompt('Help me develop a fantasy novel plot about a hidden kingdom in a parallel universe. Outline three main characters, their goals, conflicts, and how they evolve. Include a major plot twist in the middle.')">Copy</button>
+            </li>
+            <li>
+                <div class="prompt-text">Write a short poem in free verse style about the theme of perseverance. Aim for a reflective, hopeful tone.</div>
+                <button class="copy-button" onclick="copyPrompt('Write a short poem in free verse style about the theme of perseverance. Aim for a reflective, hopeful tone.')">Copy</button>
+            </li>
+            <li>
+                <div class="prompt-text">I have these ingredients: chicken breast, spinach, feta cheese, and puff pastry. Suggest a recipe that takes under 40 minutes to prepare. Provide a step-by-step process and any useful cooking tips.</div>
+                <button class="copy-button" onclick="copyPrompt('I have these ingredients: chicken breast, spinach, feta cheese, and puff pastry. Suggest a recipe that takes under 40 minutes to prepare. Provide a step-by-step process and any useful cooking tips.')">Copy</button>
+            </li>
+            <li>
+                <div class="prompt-text">I want to redecorate my living room into a minimalist style with a soft color palette. Recommend furniture choices, color schemes, lighting, and space utilization. My budget is around $1,000.</div>
+                <button class="copy-button" onclick="copyPrompt('I want to redecorate my living room into a minimalist style with a soft color palette. Recommend furniture choices, color schemes, lighting, and space utilization. My budget is around $1,000.')">Copy</button>
+            </li>
+            <li>
+                <div class="prompt-text">Help me write a short motivational song lyric that talks about overcoming obstacles and staying true to oneself. Include a catchy chorus and easy-to-remember verse.</div>
+                <button class="copy-button" onclick="copyPrompt('Help me write a short motivational song lyric that talks about overcoming obstacles and staying true to oneself. Include a catchy chorus and easy-to-remember verse.')">Copy</button>
+            </li>
         </ul>
     </div>
 
-    <!-- Add more categories as needed -->
+    <script>
+        function copyPrompt(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Prompt copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
 </body>
 </html>
