@@ -446,29 +446,6 @@ footer {
 }
 
 /*===============================
-  Breadcrumb Navigation
-================================*/
-.breadcrumb {
-  background: var(--card-bg);
-  padding: 10px 20px;
-  border-radius: 8px;
-  margin: 20px auto;
-  max-width: 1200px;
-  font-size: 0.9rem;
-  color: var(--text-color);
-}
-
-.breadcrumb a {
-  text-decoration: none;
-  color: var(--accent-color);
-  transition: color 0.2s;
-}
-
-.breadcrumb a:hover {
-  color: var(--accent-hover);
-}
-
-/*===============================
   Animations
 ================================*/
 @keyframes fadeIn {
