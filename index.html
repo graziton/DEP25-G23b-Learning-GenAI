@@ -116,20 +116,34 @@
   </main>
 
   
-
-<div class="tutorial-container">
-  <h2>AI in Your Profession</h2>
-  <label for="profession">Select Your Field:</label>
-  <select id="profession" onchange="generateTutorial()">
-      <option value="">-- Select --</option>
-      <option value="doctor">Doctor</option>
-      <option value="engineer">Engineer</option>
-      <option value="student">Student</option>
-      <option value="business">Business</option>
-  </select>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>AI Tutorial</title>
+      <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+      <div class="tutorial-container">
+          <h2>AI in Your Profession</h2>
+          <label for="profession">Select Your Field:</label>
+          <select id="profession" onchange="generateTutorial()">
+              <option value="">-- Select --</option>
+              <option value="doctor">Doctor</option>
+              <option value="engineer">Engineer</option>
+              <option value="student">Student</option>
+              <option value="business">Business</option>
+          </select>
+          
+          <!-- Tutorial will appear here -->
+          <div id="tutorial-content" class="hidden"></div>
+      </div>
   
-  <div id="tutorial-content"></div>
-</div>
+      <script src="script.js"></script>
+  </body>
+  </html>
+  
 
 
 

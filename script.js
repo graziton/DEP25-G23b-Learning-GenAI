@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
  
     
-
 // AI Use Cases for Different Professions
 const tutorials = {
   doctor: `
@@ -53,22 +52,20 @@ const tutorials = {
   `
 };
 
-// Generate tutorial based on selection & scroll to it
+// Show AI use case instantly without scrolling
 function generateTutorial() {
   let profession = document.getElementById("profession").value;
   let tutorialContent = document.getElementById("tutorial-content");
 
   if (profession) {
       tutorialContent.innerHTML = tutorials[profession];
-
-      // Wait for content to load before scrolling
-      setTimeout(() => {
-          tutorialContent.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 200); // Small delay ensures content is visible before scrolling
+      tutorialContent.classList.add("visible"); // Show content
   } else {
+      tutorialContent.classList.remove("visible"); // Hide if no selection
       tutorialContent.innerHTML = "";
   }
 }
+
 
 
 

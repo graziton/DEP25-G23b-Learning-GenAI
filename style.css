@@ -78,9 +78,6 @@ header {
 }
 
 
-
-
-
 body {
   background: #121212;
   color: white;
@@ -92,7 +89,7 @@ body {
   background: #1e1e1e;
   padding: 20px;
   border-radius: 10px;
-  margin: 20px auto;
+  margin: 50px auto;
   width: 60%;
   box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.1);
 }
@@ -112,7 +109,16 @@ select {
   background: #2c2c2c;
   border-radius: 10px;
   text-align: left;
+  display: none; /* Hide until selected */
 }
+
+/* Show content when it is available */
+#tutorial-content.visible {
+  display: block;
+}
+
+
+
 
 
 /*===============================
