@@ -107,43 +107,34 @@
       </div>
     </section>
 
-    <!-- AI Chat Section -->
-    <section id="interactive-chat" class="fade-in">
-        <h2>Try AI Chat</h2>
-        <p>Experience AI chat directly in your browser. Start by entering your API key.</p>
-        <div id="ai-chat-mount-point"></div>
-    </section>
-  </main>
-
-  
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>AI Tutorial</title>
-      <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-      <div class="tutorial-container">
-          <h2>AI in Your Profession</h2>
-          <label for="profession">Select Your Field:</label>
-          <select id="profession" onchange="generateTutorial()">
-              <option value="">-- Select --</option>
-              <option value="doctor">Doctor</option>
-              <option value="engineer">Engineer</option>
-              <option value="student">Student</option>
-              <option value="business">Business</option>
-          </select>
-          
-          <!-- Tutorial will appear here -->
-          <div id="tutorial-content" class="hidden"></div>
-      </div>
-  
-      <script src="script.js"></script>
-  </body>
-  </html>
-  
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AI Tutorial</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="tutorial-container">
+            <h2>AI in Your Profession</h2>
+            <label for="profession">Select Your Field:</label>
+            <select id="profession" onchange="generateTutorial()">
+                <option value="">-- Select --</option>
+                <option value="doctor">Doctor</option>
+                <option value="engineer">Engineer</option>
+                <option value="student">Student</option>
+                <option value="business">Business</option>
+            </select>
+            
+            <!-- This is where the content will appear -->
+            <div id="tutorial-content" class="tutorial-box"></div>
+        </div>
+    
+        <script src="script.js"></script>
+    </body>
+    </html>
+    
 
 
 

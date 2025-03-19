@@ -52,16 +52,16 @@ const tutorials = {
   `
 };
 
-// Show AI use case instantly without scrolling
+// Function to display AI tutorial instantly
 function generateTutorial() {
   let profession = document.getElementById("profession").value;
   let tutorialContent = document.getElementById("tutorial-content");
 
-  if (profession) {
+  if (profession && tutorials[profession]) {
       tutorialContent.innerHTML = tutorials[profession];
       tutorialContent.classList.add("visible"); // Show content
   } else {
-      tutorialContent.classList.remove("visible"); // Hide if no selection
+      tutorialContent.classList.remove("visible"); // Hide content if no selection
       tutorialContent.innerHTML = "";
   }
 }

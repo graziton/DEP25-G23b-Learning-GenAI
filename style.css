@@ -103,20 +103,20 @@ select {
   border: none;
 }
 
-#tutorial-content {
+/* Content box styling */
+.tutorial-box {
   margin-top: 20px;
   padding: 15px;
   background: #2c2c2c;
   border-radius: 10px;
   text-align: left;
-  display: none; /* Hide until selected */
+  display: none; /* Hidden until user selects */
+  border: 1px solid #555;
 }
 
-/* Show content when it is available */
-#tutorial-content.visible {
+.tutorial-box.visible {
   display: block;
 }
-
 
 
 
