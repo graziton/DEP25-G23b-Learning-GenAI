@@ -10,67 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // AI Quiz Data
-const quizQuestions = [
-  {
-      question: "1. What does AI stand for?",
-      options: ["Artificial Intelligence", "Automated Innovation", "Advanced Internet"],
-      answer: "Artificial Intelligence"
-  },
-  {
-      question: "2. Which AI model is commonly used for chatbots?",
-      options: ["GPT-4", "Blockchain", "IoT"],
-      answer: "GPT-4"
-  },
-  {
-      question: "3. What is Machine Learning?",
-      options: [
-          "A way for machines to learn from data",
-          "A programming language",
-          "A hardware component"
-      ],
-      answer: "A way for machines to learn from data"
-  }
-];
-
-
-
-// Load Quiz Questions
-const quizContainer = document.getElementById("quiz");
-
-quizQuestions.forEach((q, index) => {
-  let div = document.createElement("div");
-  div.className = "question";
-  div.innerHTML = `<p>${q.question}</p>`;
-  
-  q.options.forEach(option => {
-      div.innerHTML += `
-          <label>
-              <input type="radio" name="q${index}" value="${option}">
-              ${option}
-          </label><br>
-      `;
-  });
-
-  quizContainer.appendChild(div);
-});
-
-// Submit Quiz and Show Result
-function submitQuiz() {
-  let score = 0;
-
-  quizQuestions.forEach((q, index) => {
-      let selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
-      if (selectedOption && selectedOption.value === q.answer) {
-          score++;
-      }
-  });
-
-  let resultText = `You scored ${score} out of ${quizQuestions.length}. `;
-  resultText += (score === quizQuestions.length) ? "🎉 Congrats! You passed!" : "Try again to improve your score!";
-
-  document.getElementById("quiz-result").innerText = resultText;
-}
+ 
     
 
 // AI Use Cases for Different Professions
