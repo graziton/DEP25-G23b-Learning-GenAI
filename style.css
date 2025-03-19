@@ -77,6 +77,41 @@ header {
   color: #fff;
 }
 
+.quiz-container {
+  text-align: center;
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+#quiz {
+  text-align: left;
+  margin: 10px auto;
+  width: 60%;
+}
+
+.question {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.quiz-container button {
+  background: #27ae60;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.quiz-container button:hover {
+  background: #2ecc71;
+}
+
+
 /*===============================
   Table of Contents (TOC)
 ================================*/
