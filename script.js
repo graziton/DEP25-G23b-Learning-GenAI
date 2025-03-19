@@ -56,17 +56,23 @@ const tutorials = {
   `
 };
 
-// Generate tutorial based on selected profession
+
+
+// Generate tutorial based on selected profession and scroll to content
 function generateTutorial() {
   let profession = document.getElementById("profession").value;
   let tutorialContent = document.getElementById("tutorial-content");
 
   if (profession) {
       tutorialContent.innerHTML = tutorials[profession];
+      
+      // Smooth scroll to the tutorial content
+      tutorialContent.scrollIntoView({ behavior: "smooth" });
   } else {
       tutorialContent.innerHTML = "";
   }
 }
+
 
 
   // Mobile Menu Toggle
