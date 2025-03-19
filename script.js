@@ -17,61 +17,59 @@ document.addEventListener("DOMContentLoaded", () => {
 const tutorials = {
   doctor: `
       <h3>AI in Healthcare 🏥</h3>
-      <p>AI is revolutionizing the medical industry with various applications, including:</p>
+      <p>AI is transforming healthcare with applications like:</p>
       <ul>
-          <li><b>Medical Imaging:</b> AI analyzes X-rays, MRIs, and CT scans for faster and more accurate diagnoses.</li>
-          <li><b>Drug Discovery:</b> AI accelerates research by identifying potential drugs and treatments.</li>
-          <li><b>Personalized Medicine:</b> AI tailors treatments based on a patient’s genetic makeup.</li>
-          <li><b>Virtual Health Assistants:</b> AI-powered chatbots provide instant medical advice to patients.</li>
-          <li><b>Robotic Surgeries:</b> AI assists doctors in performing precise and minimally invasive surgeries.</li>
+          <li><b>Medical Imaging:</b> AI detects diseases in X-rays, MRIs, and CT scans.</li>
+          <li><b>Drug Discovery:</b> AI accelerates new drug research and testing.</li>
+          <li><b>Virtual Assistants:</b> AI-powered bots help with patient queries and support.</li>
       </ul>
   `,
   engineer: `
       <h3>AI in Engineering ⚙️</h3>
-      <p>AI is transforming engineering fields with applications such as:</p>
+      <p>AI is changing engineering fields by:</p>
       <ul>
-          <li><b>Predictive Maintenance:</b> AI predicts when machines will fail, reducing downtime.</li>
-          <li><b>Automation:</b> AI optimizes manufacturing processes and enhances efficiency.</li>
-          <li><b>AI-Assisted Design:</b> AI suggests better engineering designs in CAD software.</li>
-          <li><b>Smart Robotics:</b> AI-powered robots improve assembly lines and quality control.</li>
+          <li><b>Predictive Maintenance:</b> AI detects failures before they happen.</li>
+          <li><b>CAD Design Assistance:</b> AI enhances Computer-Aided Design models.</li>
+          <li><b>Smart Automation:</b> AI optimizes production and manufacturing.</li>
       </ul>
   `,
   student: `
       <h3>AI in Education 📚</h3>
-      <p>AI enhances learning experiences with:</p>
+      <p>AI helps students by:</p>
       <ul>
-          <li><b>AI Tutors:</b> Virtual AI tutors help students understand difficult concepts.</li>
-          <li><b>Smart Content:</b> AI generates summaries, quizzes, and personalized study plans.</li>
-          <li><b>Language Processing:</b> AI helps students learn new languages efficiently.</li>
+          <li><b>AI Tutors:</b> Virtual tutors for personalized learning.</li>
+          <li><b>Smart Content:</b> AI-generated study guides and notes.</li>
+          <li><b>Plagiarism Detection:</b> AI ensures originality in assignments.</li>
       </ul>
   `,
   business: `
       <h3>AI in Business 💼</h3>
-      <p>AI is optimizing business operations through:</p>
+      <p>AI improves business efficiency by:</p>
       <ul>
-          <li><b>Customer Service:</b> AI chatbots handle queries 24/7.</li>
-          <li><b>Data Analytics:</b> AI analyzes customer behavior to improve marketing strategies.</li>
-          <li><b>Fraud Detection:</b> AI detects fraudulent transactions in real time.</li>
+          <li><b>AI Chatbots:</b> 24/7 customer service and support.</li>
+          <li><b>Fraud Detection:</b> AI identifies suspicious transactions.</li>
+          <li><b>Market Analytics:</b> AI predicts trends for better decisions.</li>
       </ul>
   `
 };
 
-
-
-// Generate tutorial based on selected profession and scroll to content
+// Generate tutorial based on selection & scroll to it
 function generateTutorial() {
   let profession = document.getElementById("profession").value;
   let tutorialContent = document.getElementById("tutorial-content");
 
   if (profession) {
       tutorialContent.innerHTML = tutorials[profession];
-      
-      // Smooth scroll to the tutorial content
-      tutorialContent.scrollIntoView({ behavior: "smooth" });
+
+      // Wait for content to load before scrolling
+      setTimeout(() => {
+          tutorialContent.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 200); // Small delay ensures content is visible before scrolling
   } else {
       tutorialContent.innerHTML = "";
   }
 }
+
 
 
 
