@@ -124,6 +124,21 @@
     <p id="quiz-result"></p>
 </div>
 
+<div class="tutorial-container">
+  <h2>AI in Your Profession</h2>
+  <label for="profession">Select Your Field:</label>
+  <select id="profession" onchange="generateTutorial()">
+      <option value="">-- Select --</option>
+      <option value="doctor">Doctor</option>
+      <option value="engineer">Engineer</option>
+      <option value="student">Student</option>
+      <option value="business">Business</option>
+  </select>
+  
+  <div id="tutorial-content"></div>
+</div>
+
+
 
   <!-- Footer -->
   <footer>
