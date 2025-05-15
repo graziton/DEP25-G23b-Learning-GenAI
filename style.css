@@ -2,15 +2,15 @@
   Global Variables & Base Styles
 ================================*/
 :root {
-  --header-bg: #0E1F38;
-  --footer-bg: #0E1F38;
+  --header-bg: #0e1f38;
+  --footer-bg: #0e1f38;
   --body-bg: #121212;
   --card-bg: #1e1f1e;
   --accent-color: #00ffc6;
   --accent-hover: #00e6b8;
   --text-color: #e0e0e0;
   --transition-speed: 0.3s;
-  --header-height: 63px;                      /* To control header size */
+  --header-height: 63px; /* To control header size */
   --toc-extra-width: 70px;
   --scroll-offset: var(--header-height);
 }
@@ -21,14 +21,16 @@ html {
   overflow-x: hidden;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   line-height: 1.6;
   background-color: var(--body-bg);
   color: var(--text-color);
@@ -77,7 +79,6 @@ header {
   color: #fff;
 }
 
-
 body {
   background: #121212;
   color: white;
@@ -117,9 +118,6 @@ select {
 .tutorial-box.visible {
   display: block;
 }
-
-
-
 
 /*===============================
   Table of Contents (TOC)
@@ -164,7 +162,7 @@ select {
   Hero Section
 ================================*/
 .hero-section {
-  background: url('assets/hero-bg.jpg') no-repeat center center/cover;
+  background: url("assets/hero-bg.jpg") no-repeat center center/cover;
   height: 80vh;
   display: flex;
   align-items: center;
@@ -266,11 +264,12 @@ footer {
   border-radius: 15px;
   padding: 20px;
   text-align: left;
-  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  transition: transform var(--transition-speed) ease,
+    box-shadow var(--transition-speed) ease;
 }
 .category-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
 }
 .category-card img {
   width: 100%;
@@ -310,11 +309,12 @@ footer {
   border-radius: 15px;
   padding: 20px;
   text-align: left;
-  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  transition: transform var(--transition-speed) ease,
+    box-shadow var(--transition-speed) ease;
 }
 .tutorial-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
 }
 .tutorial-card img {
   width: 100%;
@@ -419,10 +419,12 @@ footer {
   border-radius: 5px;
   text-align: center;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   font-size: 14px;
   z-index: 100;
-  transition: transform var(--transition-speed) ease, background var(--transition-speed) ease, opacity var(--transition-speed) ease;
+  transition: transform var(--transition-speed) ease,
+    background var(--transition-speed) ease,
+    opacity var(--transition-speed) ease;
   opacity: 0;
   visibility: hidden;
 }
@@ -458,7 +460,7 @@ footer {
   left: 0;
   border-radius: 8px;
   min-width: 150px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transform: perspective(500px) rotateX(-90deg); /* Roll in from the top */
   opacity: 0;
   visibility: hidden;
@@ -493,8 +495,14 @@ footer {
   Animations
 ================================*/
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .fade-in {
   opacity: 0;
@@ -509,12 +517,22 @@ footer {
   Responsive Styles
 ================================*/
 @media (max-width: 768px) {
-  .hero-content h2 { font-size: 2rem; }
-  .hero-content p { font-size: 1rem; }
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
   .categories-grid,
-  .tutorial-grid { grid-template-columns: 1fr; }
-  .menu li { margin-left: 10px; }
-  .menu-toggle { display: block; }
+  .tutorial-grid {
+    grid-template-columns: 1fr;
+  }
+  .menu li {
+    margin-left: 10px;
+  }
+  .menu-toggle {
+    display: block;
+  }
   .menu {
     display: none;
     flex-direction: column;
@@ -524,6 +542,66 @@ footer {
     top: 100%;
     left: 0;
   }
-  .menu li { margin: 10px 0; text-align: center; }
-  .menu.show { display: flex; }
+  .menu li {
+    margin: 10px 0;
+    text-align: center;
+  }
+  .menu.show {
+    display: flex;
+  }
+}
+
+/* Login Page Styles */
+.login-main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0e1f38;
+}
+
+.login-container {
+  background: #121212;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #00ffc6;
+  border-radius: 4px;
+  background: #1e1e1e;
+  color: white;
+}
+
+.login-container button {
+  background: #00ffc6;
+  color: #121212;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+#loginMessage {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+#loginMessage.error {
+  background: #ff4444;
+  color: white;
+}
+
+#loginMessage.info {
+  background: #2196f3;
+  color: white;
 }

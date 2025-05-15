@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Learn AI</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="js/login.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <h1><a href="index.html">Learn AI</a></h1>
+        </div>
+      </nav>
+    </header>
+
+    <main class="login-main">
+      <div class="login-container">
+        <h2>Login with OTP</h2>
+
+        <!-- Step 1: Email Input -->
+        <div id="step1">
+          <input type="email" id="loginEmail" placeholder="Enter your email" />
+          <button id="sendOtpBtn">Send OTP</button>
+        </div>
+
+        <!-- Step 2: OTP Verification -->
+        <div id="step2" style="display: none">
+          <input type="text" id="loginOtp" placeholder="Enter 6-digit OTP" />
+          <button id="verifyOtpBtn">Verify OTP</button>
+        </div>
+
+        <p id="loginMessage"></p>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,55 +1,82 @@
-// public/js/login.js
+// login.js - OTP Login Handler
 document.addEventListener("DOMContentLoaded", () => {
-  const sendBtn = document.getElementById("sendOtpBtn");
-  const verifyBtn = document.getElementById("verifyOtpBtn");
-  const emailEl = document.getElementById("email");
-  const otpEl = document.getElementById("otp");
-  const msg = document.getElementById("message");
+  const sendOtpBtn = document.getElementById("sendOtpBtn");
+  const verifyOtpBtn = document.getElementById("verifyOtpBtn");
+  const emailInput = document.getElementById("loginEmail");
+  const otpInput = document.getElementById("loginOtp");
+  const messageEl = document.getElementById("loginMessage");
   const step1 = document.getElementById("step1");
   const step2 = document.getElementById("step2");
 
-  // Step 1: send OTP
-  sendBtn.addEventListener("click", async () => {
-    const email = emailEl.value.trim();
-    if (!email) return (msg.textContent = "Please enter your email.");
-    msg.textContent = "Sending OTP…";
+  // Send OTP
+  sendOtpBtn.addEventListener("click", async () => {
+    const email = emailInput.value.trim();
+    if (!validateEmail(email)) {
+      showMessage("Please enter a valid email address", "error");
+      return;
+    }
+
+    showMessage("Sending OTP...");
+
     try {
-      await fetch("/api/auth/send-otp", {
+      const response = await fetch("/api/auth/send-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
-      msg.textContent = "OTP sent! Check your inbox.";
+
+      if (!response.ok) throw new Error("Failed to send OTP");
+
       step1.style.display = "none";
       step2.style.display = "block";
-    } catch (e) {
-      msg.textContent = "Error sending OTP.";
+      showMessage("OTP sent to your email!");
+    } catch (error) {
+      showMessage("Error sending OTP. Please try again.", "error");
     }
   });
 
-  // Step 2: verify OTP
-  verifyBtn.addEventListener("click", async () => {
-    const email = emailEl.value.trim();
-    const code = otpEl.value.trim();
-    if (!code) return (msg.textContent = "Please enter the OTP.");
-    msg.textContent = "Verifying…";
+  // Verify OTP
+  verifyOtpBtn.addEventListener("click", async () => {
+    const email = emailInput.value.trim();
+    const otp = otpInput.value.trim();
+
+    if (!validateOtp(otp)) {
+      showMessage("Please enter a 6-digit OTP", "error");
+      return;
+    }
+
+    showMessage("Verifying OTP...");
+
     try {
-      const res = await fetch("/api/auth/verify-otp", {
+      const response = await fetch("/api/auth/verify-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, code }),
+        body: JSON.stringify({ email, code: otp }),
       });
-      const data = await res.json();
-      if (!data.success) throw new Error(data.error || "Failed");
 
-      // mark as logged in
+      const data = await response.json();
+
+      if (!response.ok) throw new Error(data.error || "Invalid OTP");
+
+      // Login successful
       localStorage.setItem("isLoggedIn", "true");
-      // notify other tabs
-      localStorage.setItem("login-event", Date.now());
-      msg.textContent = "Logged in successfully! Redirecting…";
-      setTimeout(() => (window.location.href = "/"), 1000);
-    } catch (err) {
-      msg.textContent = err.message || "Invalid OTP.";
+      window.location.href = "index.html";
+    } catch (error) {
+      showMessage(error.message || "Verification failed", "error");
     }
   });
+
+  // Helper functions
+  function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  function validateOtp(otp) {
+    return /^\d{6}$/.test(otp);
+  }
+
+  function showMessage(text, type = "info") {
+    messageEl.textContent = text;
+    messageEl.className = `login-message ${type}`;
+  }
 });
