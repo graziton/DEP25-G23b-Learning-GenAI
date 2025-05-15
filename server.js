@@ -1,3 +1,4 @@
+// server.js
 require("dotenv").config();
 const express = require("express");
 const path = require("path");
@@ -7,30 +8,39 @@ const authRoutes = require("./routes/auth");
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-// 1. Connect to MongoDB
-mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("✅ MongoDB connected"))
-  .catch((err) => console.error("❌ MongoDB connection error:", err));
+// 1. Choose the correct MongoDB URI
+const mongoUri = process.env.MONGO_URI || process.env.DATABASE_URL;
+if (!mongoUri) {
+  console.error(
+    "❌ No MongoDB URI provided. Set MONGO_URI or DATABASE_URL in your environment."
+  );
+  process.exit(1);
+}
 
-// 2. Middleware
+// 2. Connect to MongoDB
+mongoose
+  .connect(mongoUri)
+  .then(() => console.log("✅ MongoDB connected"))
+  .catch((err) => {
+    console.error("❌ MongoDB connection error:", err);
+    process.exit(1);
+  });
+
+// 3. Middleware
 app.use(express.json());
 
-// 3. Serve static files (your HTML, CSS, JS, assets/)
+// 4. Serve static files (HTML, CSS, client JS, assets/)
 app.use(express.static(__dirname));
 
-// 4. API routes for OTP
+// 5. Mount OTP auth routes
 app.use("/api/auth", authRoutes);
 
-// 5. Fallback: send index.html for any non-API route
+// 6. Catch-all to serve index.html for client-side routing
 app.get(/.*/, (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
-// 6. Start server
+// 7. Start server
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
