@@ -1,0 +1,3 @@
+# nixpacks.toml
+[phases.start]
+commands = ["npm start"]
