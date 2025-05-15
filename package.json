@@ -1,4 +1,14 @@
 {
+  "name": "genai-tutorial",
+  "version": "1.0.0",
+  "description": "Learn AI tutorial website with OTP-based login",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "Samarth Sharma",
+  "license": "MIT",
   "dependencies": {
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
@@ -8,5 +18,8 @@
     "mongoose": "^8.14.3",
     "nodemailer": "^7.0.3",
     "otp-generator": "^4.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
