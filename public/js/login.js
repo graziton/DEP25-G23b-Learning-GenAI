@@ -1,4 +1,3 @@
-// login.js - OTP Login Handler
 document.addEventListener("DOMContentLoaded", () => {
   const sendOtpBtn = document.getElementById("sendOtpBtn");
   const verifyOtpBtn = document.getElementById("verifyOtpBtn");
@@ -8,10 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const step1 = document.getElementById("step1");
   const step2 = document.getElementById("step2");
 
-  // Send OTP
+  // Email validation regex
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
   sendOtpBtn.addEventListener("click", async () => {
     const email = emailInput.value.trim();
-    if (!validateEmail(email)) {
+
+    if (!emailRegex.test(email)) {
       showMessage("Please enter a valid email address", "error");
       return;
     }
@@ -25,27 +27,26 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify({ email }),
       });
 
-      if (!response.ok) throw new Error("Failed to send OTP");
+      if (!response.ok) throw new Error("OTP send failed");
 
       step1.style.display = "none";
       step2.style.display = "block";
-      showMessage("OTP sent to your email!");
+      showMessage("OTP sent! Check your email.");
     } catch (error) {
-      showMessage("Error sending OTP. Please try again.", "error");
+      showMessage(error.message || "Failed to send OTP", "error");
     }
   });
 
-  // Verify OTP
   verifyOtpBtn.addEventListener("click", async () => {
     const email = emailInput.value.trim();
     const otp = otpInput.value.trim();
 
-    if (!validateOtp(otp)) {
-      showMessage("Please enter a 6-digit OTP", "error");
+    if (!/^\d{6}$/.test(otp)) {
+      showMessage("Invalid OTP format", "error");
       return;
     }
 
-    showMessage("Verifying OTP...");
+    showMessage("Verifying...");
 
     try {
       const response = await fetch("/api/auth/verify-otp", {
@@ -56,27 +57,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const data = await response.json();
 
-      if (!response.ok) throw new Error(data.error || "Invalid OTP");
+      if (!response.ok) throw new Error(data.error || "Verification failed");
 
-      // Login successful
+      // Successful login
       localStorage.setItem("isLoggedIn", "true");
+
+      // Broadcast login to other tabs
+      window.localStorage.setItem("login-event", Date.now());
+
       window.location.href = "index.html";
     } catch (error) {
       showMessage(error.message || "Verification failed", "error");
     }
   });
 
-  // Helper functions
-  function validateEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
-
-  function validateOtp(otp) {
-    return /^\d{6}$/.test(otp);
-  }
-
   function showMessage(text, type = "info") {
     messageEl.textContent = text;
-    messageEl.className = `login-message ${type}`;
+    messageEl.className = `message ${type}`;
   }
 });

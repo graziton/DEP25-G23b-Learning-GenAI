@@ -1,45 +1,43 @@
-// auth.js - Authentication Manager
 (function () {
-  // Check login status on page load
-  function checkAuth() {
+  function checkAuthStatus() {
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-    const currentPage = window.location.pathname.split("/").pop();
+    const currentPage = location.pathname.split("/").pop();
 
     if (!isLoggedIn && currentPage !== "login.html") {
-      window.location.href = "login.html";
-      return;
+      location.href = "/login.html";
     }
 
     if (isLoggedIn && currentPage === "login.html") {
-      window.location.href = "index.html";
+      location.href = "/index.html";
     }
+
+    document.body.classList.toggle("authenticated", isLoggedIn);
   }
 
-  // Logout functionality
   function setupLogout() {
-    const logoutBtn = document.getElementById("logoutBtn");
-    if (logoutBtn) {
-      logoutBtn.addEventListener("click", function () {
-        localStorage.removeItem("isLoggedIn");
-        // Notify other tabs
-        localStorage.setItem("logout-event", Date.now());
-        window.location.href = "login.html";
-      });
-    }
+    document.getElementById("logoutBtn")?.addEventListener("click", () => {
+      localStorage.removeItem("isLoggedIn");
+      window.dispatchEvent(
+        new StorageEvent("storage", {
+          key: "logout-event",
+          newValue: Date.now().toString(),
+        })
+      );
+      location.href = "/login.html";
+    });
   }
 
-  // Cross-tab synchronization
-  function setupTabSync() {
-    window.addEventListener("storage", function (event) {
+  function handleStorageEvents() {
+    window.addEventListener("storage", (event) => {
       if (event.key === "logout-event") {
         localStorage.removeItem("isLoggedIn");
-        window.location.href = "login.html";
+        location.href = "/login.html";
       }
     });
   }
 
   // Initialize
-  checkAuth();
+  checkAuthStatus();
   setupLogout();
-  setupTabSync();
+  handleStorageEvents();
 })();

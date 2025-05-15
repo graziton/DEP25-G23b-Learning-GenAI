@@ -1,3 +1,78 @@
+/* Base Styles */
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #0e1f38;
+  color: #ffffff;
+}
+
+/* Auth UI States */
+#logoutContainer {
+  display: none;
+}
+#loginContainer {
+  display: block;
+}
+
+.authenticated #logoutContainer {
+  display: block;
+}
+.authenticated #loginContainer {
+  display: none;
+}
+
+/* Navigation */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 5%;
+  background: #121212;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  align-items: center;
+}
+
+#logoutBtn {
+  background: #00ffc6;
+  color: #121212;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Login Page Styles */
+.login-main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  background: #1e1e1e;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #00ffc6;
+  border-radius: 4px;
+  background: #121212;
+  color: white;
+}
+
 /*===============================
   Global Variables & Base Styles
 ================================*/
