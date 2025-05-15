@@ -1,154 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn AI - Your One-Stop Hub for AI Tutorials, Guides, and Tools to Explore Artificial Intelligence.">
-  <meta property="og:title" content="Learn AI - Your One-Stop Hub for AI Tutorials">
-  <meta property="og:description" content="Explore AI tutorials, guides, and tools for artificial intelligence.">
-  <meta property="og:image" content="assets/hero-bg.jpg">
-  <meta property="og:url" content="https://graziton.github.io/genai-tutorial/">
-  <title>Learn AI - Your One-Stop Hub for AI Tutorials</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- Google Font: Roboto -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="ai-chat.css">
-  <script src="script.js" defer></script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Learn AI - Your One-Stop Hub for AI Tutorials, Guides, and Tools to Explore Artificial Intelligence."
+    />
+    <meta
+      property="og:title"
+      content="Learn AI - Your One-Stop Hub for AI Tutorials"
+    />
+    <meta
+      property="og:description"
+      content="Explore AI tutorials, guides, and tools for artificial intelligence."
+    />
+    <meta property="og:image" content="assets/hero-bg.jpg" />
+    <meta
+      property="og:url"
+      content="https://graziton.github.io/genai-tutorial/"
+    />
+    <title>Learn AI - Your One-Stop Hub for AI Tutorials</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google Font: Roboto -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="ai-chat.css" />
+    <!-- Your existing scripts -->
+    <script src="script.js" defer></script>
+    <!-- NEW: Auth guard and cross-tab sync -->
+    <script src="js/auth.js" defer></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav class="navbar" role="navigation">
+        <div class="logo">
+          <h1><a href="index.html">Learn AI</a></h1>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle navigation">
+          &#9776;
+        </button>
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#">Categories</a>
+            <ul class="dropdown-menu">
+              <li><a href="generative.html">Generative AI</a></li>
+              <li><a href="predictive.html">Predictive Analytics</a></li>
+              <li><a href="computer-vision.html">Computer Vision</a></li>
+              <li><a href="nlp.html">NLP Tools</a></li>
+            </ul>
+          </li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="prompts.html">Preloaded Prompts</a></li>
+          <!-- NEW: Logout Button -->
+          <li><button id="logoutBtn" class="logout-button">Logout</button></li>
+        </ul>
+      </nav>
+    </header>
 
-  <!-- Header -->
-  <header>
-    <nav class="navbar" role="navigation">
-      <div class="logo">
-        <h1><a href="index.html">Learn AI</a></h1>
-      </div>
-      <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
-      <ul class="menu">
-        <li><a href="index.html">Home</a></li>
-        <li class="dropdown">
-          <a href="#">Categories</a>
-          <ul class="dropdown-menu">
-            <li><a href="generative.html">Generative AI</a></li>
-            <li><a href="predictive.html">Predictive Analytics</a></li>
-            <li><a href="computer-vision.html">Computer Vision</a></li>
-            <li><a href="nlp.html">NLP Tools</a></li>
-          </ul>
-        </li>
-        <li><a href="resources.html">Resources</a></li>
-        <li><a href="prompts.html">Preloaded Prompts</a></li> <!-- New Category -->
-      </ul>
-    </nav>
-  </header>  
+    <!-- Main Content -->
+    <main id="main-content">
+      <!-- Hero Section -->
+      <section id="home" class="hero-section fade-in">
+        <div class="hero-content">
+          <h2>Welcome to Learn AI</h2>
+          <p>
+            Unlock the potential of Artificial Intelligence with our tutorials,
+            guides, and tools. Whether you're a beginner or an expert, there's
+            something here for everyone.
+          </p>
+          <a href="#categories" class="cta-button">Explore Categories</a>
+        </div>
+      </section>
 
-  <!-- Main Content -->
-  <main id="main-content">
-    <!-- Hero Section -->
-    <section id="home" class="hero-section fade-in">
-      <div class="hero-content">
-        <h2>Welcome to Learn AI</h2>
-        <p>
-          Unlock the potential of Artificial Intelligence with our tutorials, guides, and tools.
-          Whether you're a beginner or an expert, there's something here for everyone.
-        </p>
-        <a href="#categories" class="cta-button">Explore Categories</a>
-      </div>
-    </section>
-
-    <!-- AI Categories Section -->
-    <section id="categories" class="categories-section fade-in">
-      <div class="container">
-        <h2>Explore AI Categories</h2>
-        <div class="categories-grid">
-          <!-- Generative AI Card -->
-          <div class="category-card">
-            <a href="generative.html">
-              <img src="assets/generative.jpg" alt="Generative AI" loading="lazy">
-              <h3>Generative AI</h3>
-              <p>Create text, images, video, and more with advanced generative models.</p>
-            </a>
-          </div>
-          <!-- Predictive Analytics Card -->
-          <div class="category-card">
-            <a href="predictive.html">
-              <img src="assets/predictive.jpg" alt="Predictive Analytics" loading="lazy">
-              <h3>Predictive Analytics</h3>
-              <p>Forecast trends and outcomes using intelligent data analytics.</p>
-            </a>
-          </div>
-          <!-- Computer Vision Card -->
-          <div class="category-card">
-            <a href="computer-vision.html">
-              <img src="assets/computer-vision.jpg" alt="Computer Vision" loading="lazy">
-              <h3>Computer Vision</h3>
-              <p>Use machines that understand and interpret visual information.</p>
-            </a>
-          </div>
-          <!-- NLP Card -->
-          <div class="category-card">
-            <a href="nlp.html">
-              <img src="assets/nlp.jpg" alt="Natural Language Processing" loading="lazy">
-              <h3>Natural Language Processing</h3>
-              <p>Understand the secrets of language through text analysis and generation.</p>
-            </a>
+      <!-- AI Categories Section -->
+      <section id="categories" class="categories-section fade-in">
+        <div class="container">
+          <h2>Explore AI Categories</h2>
+          <div class="categories-grid">
+            <!-- Generative AI Card -->
+            <div class="category-card">
+              <a href="generative.html">
+                <img
+                  src="assets/generative.jpg"
+                  alt="Generative AI"
+                  loading="lazy"
+                />
+                <h3>Generative AI</h3>
+                <p>
+                  Create text, images, video, and more with advanced generative
+                  models.
+                </p>
+              </a>
+            </div>
+            <!-- Predictive Analytics Card -->
+            <div class="category-card">
+              <a href="predictive.html">
+                <img
+                  src="assets/predictive.jpg"
+                  alt="Predictive Analytics"
+                  loading="lazy"
+                />
+                <h3>Predictive Analytics</h3>
+                <p>
+                  Forecast trends and outcomes using intelligent data analytics.
+                </p>
+              </a>
+            </div>
+            <!-- Computer Vision Card -->
+            <div class="category-card">
+              <a href="computer-vision.html">
+                <img
+                  src="assets/computer-vision.jpg"
+                  alt="Computer Vision"
+                  loading="lazy"
+                />
+                <h3>Computer Vision</h3>
+                <p>
+                  Use machines that understand and interpret visual information.
+                </p>
+              </a>
+            </div>
+            <!-- NLP Card -->
+            <div class="category-card">
+              <a href="nlp.html">
+                <img
+                  src="assets/nlp.jpg"
+                  alt="Natural Language Processing"
+                  loading="lazy"
+                />
+                <h3>Natural Language Processing</h3>
+                <p>
+                  Understand the secrets of language through text analysis and
+                  generation.
+                </p>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Resources Section -->
-    <section id="resources" class="resources-section fade-in">
-      <div class="container">
-        <h2>Resources</h2>
-        <p>
-          Explore additional learning materials, tutorials, and external links to deepen your understanding of Artificial Intelligence.
-          (More resources coming soon!)
-        </p>
-      </div>
-    </section>
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AI Tutorial</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <div class="tutorial-container">
-            <h2>AI in Your Profession</h2>
-            <label for="profession">Select Your Field:</label>
-            <select id="profession" onchange="generateTutorial()">
-                <option value="">-- Select --</option>
-                <option value="doctor">Doctor</option>
-                <option value="engineer">Engineer</option>
-                <option value="student">Student</option>
-                <option value="business">Business</option>
-            </select>
-            
-            <!-- This is where the content will appear -->
-            <div id="tutorial-content" class="tutorial-box"></div>
+      <!-- Resources Section -->
+      <section id="resources" class="resources-section fade-in">
+        <div class="container">
+          <h2>Resources</h2>
+          <p>
+            Explore additional learning materials, tutorials, and external links
+            to deepen your understanding of Artificial Intelligence. (More
+            resources coming soon!)
+          </p>
         </div>
-    
-        <script src="script.js"></script>
-    </body>
-    </html>
-    
+      </section>
 
+      <!-- AI Tutorial Container (keep or remove as needed) -->
+      <section class="tutorial-container fade-in">
+        <h2>AI in Your Profession</h2>
+        <label for="profession">Select Your Field:</label>
+        <select id="profession" onchange="generateTutorial()">
+          <option value="">-- Select --</option>
+          <option value="doctor">Doctor</option>
+          <option value="engineer">Engineer</option>
+          <option value="student">Student</option>
+          <option value="business">Business</option>
+        </select>
+        <div id="tutorial-content" class="tutorial-box"></div>
+      </section>
+    </main>
 
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Learn AI. All Rights Reserved.</p>
+      </div>
+    </footer>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Learn AI. All Rights Reserved.</p>
-    </div>
-  </footer>
-  <script src="ai-chat.js"></script>
-  <script>
-      document.addEventListener('DOMContentLoaded', () => {
-          aiChat.initializeChat('gpt-4');
+    <!-- AI chat initialization -->
+    <script src="ai-chat.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        aiChat.initializeChat("gpt-4");
       });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
