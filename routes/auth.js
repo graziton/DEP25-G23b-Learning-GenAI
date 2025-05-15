@@ -5,7 +5,6 @@ const OTP = require("../models/OTP");
 const otpGenerator = require("otp-generator");
 const nodemailer = require("nodemailer");
 
-// Configure nodemailer with Gmail (use .env EMAIL_USER & EMAIL_PASS)
 const transporter = nodemailer.createTransport({
   service: "Gmail",
   auth: {
@@ -14,10 +13,6 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-/**
- * POST /api/auth/send-otp
- * Body: { email }
- */
 router.post("/send-otp", async (req, res) => {
   const { email } = req.body;
   if (!email) {
@@ -25,7 +20,7 @@ router.post("/send-otp", async (req, res) => {
   }
 
   try {
-    // Generate a 6-character OTP: digits only
+    // 6-character OTP: digits only
     const code = otpGenerator.generate(6, {
       digits: true,
       lowerCaseAlphabets: false,
@@ -34,7 +29,6 @@ router.post("/send-otp", async (req, res) => {
     });
     const expiresAt = new Date(Date.now() + 5 * 60 * 1000); // 5 minutes
 
-    // Upsert OTP record in MongoDB
     await OTP.findOneAndUpdate(
       { email },
       { code, expiresAt },
@@ -56,10 +50,6 @@ router.post("/send-otp", async (req, res) => {
   }
 });
 
-/**
- * POST /api/auth/verify-otp
- * Body: { email, code }
- */
 router.post("/verify-otp", async (req, res) => {
   const { email, code } = req.body;
   if (!email || !code) {
@@ -78,7 +68,6 @@ router.post("/verify-otp", async (req, res) => {
       return res.status(400).json({ error: "OTP has expired" });
     }
 
-    // Valid OTP: delete it so it can’t be reused
     await OTP.deleteOne({ email });
     res.json({ success: true });
   } catch (err) {

@@ -26,7 +26,6 @@
   window.addEventListener("storage", (e) => {
     if (e.key === "logout") {
       updateMenu();
-      // If you want to redirect logged-out tabs:
       if (!window.location.pathname.endsWith("login.html")) {
         window.location.href = "index.html";
       }

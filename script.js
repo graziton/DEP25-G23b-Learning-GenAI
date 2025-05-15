@@ -1,20 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
   "use strict";
 
-  // Smooth scrolling for internal anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", e => {
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", (e) => {
       e.preventDefault();
       const target = document.querySelector(anchor.getAttribute("href"));
       if (target) target.scrollIntoView({ behavior: "smooth" });
     });
   });
 
- 
-    
-// AI Use Cases for Different Professions
-const tutorials = {
-  doctor: `
+  const tutorials = {
+    doctor: `
       <h3>AI in Healthcare 🏥</h3>
       <p>AI is transforming healthcare with applications like:</p>
       <ul>
@@ -23,7 +19,7 @@ const tutorials = {
           <li><b>Virtual Assistants:</b> AI-powered bots help with patient queries and support.</li>
       </ul>
   `,
-  engineer: `
+    engineer: `
       <h3>AI in Engineering ⚙️</h3>
       <p>AI is changing engineering fields by:</p>
       <ul>
@@ -32,7 +28,7 @@ const tutorials = {
           <li><b>Smart Automation:</b> AI optimizes production and manufacturing.</li>
       </ul>
   `,
-  student: `
+    student: `
       <h3>AI in Education 📚</h3>
       <p>AI helps students by:</p>
       <ul>
@@ -41,7 +37,7 @@ const tutorials = {
           <li><b>Plagiarism Detection:</b> AI ensures originality in assignments.</li>
       </ul>
   `,
-  business: `
+    business: `
       <h3>AI in Business 💼</h3>
       <p>AI improves business efficiency by:</p>
       <ul>
@@ -49,30 +45,26 @@ const tutorials = {
           <li><b>Fraud Detection:</b> AI identifies suspicious transactions.</li>
           <li><b>Market Analytics:</b> AI predicts trends for better decisions.</li>
       </ul>
-  `
-};
+  `,
+  };
 
-// Function to display AI tutorial instantly
-function generateTutorial() {
-  let profession = document.getElementById("profession").value;
-  let tutorialContent = document.getElementById("tutorial-content");
+  // Function to display AI tutorial instantly
+  function generateTutorial() {
+    let profession = document.getElementById("profession").value;
+    let tutorialContent = document.getElementById("tutorial-content");
 
-  if (profession && tutorials[profession]) {
+    if (profession && tutorials[profession]) {
       tutorialContent.innerHTML = tutorials[profession];
       tutorialContent.classList.add("visible"); // Show content
-  } else {
+    } else {
       tutorialContent.classList.remove("visible"); // Hide content if no selection
       tutorialContent.innerHTML = "";
+    }
   }
-}
-
-
-
-
 
   // Mobile Menu Toggle
   const menuToggle = document.querySelector(".menu-toggle"),
-        menu = document.querySelector(".menu");
+    menu = document.querySelector(".menu");
   if (menuToggle && menu) {
     menuToggle.addEventListener("click", () => menu.classList.toggle("show"));
   }
@@ -81,31 +73,35 @@ function generateTutorial() {
   document.addEventListener("click", (e) => {
     const menuToggle = document.querySelector(".menu-toggle");
     const menu = document.querySelector(".menu");
-    if (menu.classList.contains("show") && !menu.contains(e.target) && e.target !== menuToggle) {
+    if (
+      menu.classList.contains("show") &&
+      !menu.contains(e.target) &&
+      e.target !== menuToggle
+    ) {
       menu.classList.remove("show");
     }
   });
 
   // Fade-in Animations via IntersectionObserver
-  const faders = document.querySelectorAll('.fade-in');
+  const faders = document.querySelectorAll(".fade-in");
   if ("IntersectionObserver" in window) {
     const appearOptions = { threshold: 0.2, rootMargin: "0px 0px 0px 0px" },
-          observer = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                obs.unobserve(entry.target);
-              }
-            });
-          }, appearOptions);
-    faders.forEach(fader => observer.observe(fader));
+      observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      }, appearOptions);
+    faders.forEach((fader) => observer.observe(fader));
   } else {
-    faders.forEach(fader => fader.classList.add("visible"));
+    faders.forEach((fader) => fader.classList.add("visible"));
   }
 
   // Collapsible Sections for FAQ
-  document.querySelectorAll(".collapsible").forEach(collapsible => {
-    collapsible.addEventListener("click", function() {
+  document.querySelectorAll(".collapsible").forEach((collapsible) => {
+    collapsible.addEventListener("click", function () {
       this.classList.toggle("active");
       const content = this.nextElementSibling;
       if (content) content.classList.toggle("open");

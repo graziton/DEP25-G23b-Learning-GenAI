@@ -10,10 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const emailRE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  // Utility to show messages
   function showMsg(text, type = "info") {
     msgEl.textContent = text;
-    msgEl.className = type; // define .info and .error in your CSS
+    msgEl.className = type;
   }
 
   // Step 1: send OTP
