@@ -21,17 +21,15 @@
       content="https://graziton.github.io/genai-tutorial/"
     />
     <title>Learn AI - Your One-Stop Hub for AI Tutorials</title>
+
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css" />
-    <!-- Google Font: Roboto -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="ai-chat.css" />
-    <!-- Your existing scripts -->
+
+    <!-- Authentication Script -->
+    <script src="auth.js" defer></script>
+    <!-- Your existing site script -->
     <script src="script.js" defer></script>
-    <!-- NEW: Auth guard and cross-tab sync -->
-    <script src="js/auth.js" defer></script>
   </head>
   <body>
     <!-- Header -->
@@ -57,11 +55,12 @@
           <li><a href="resources.html">Resources</a></li>
           <li><a href="prompts.html">Preloaded Prompts</a></li>
 
-          <li id="loginBtnContainer" style="display: none">
-            <a href="login.html">Login</a>
+          <!-- Authentication Buttons -->
+          <li id="loginContainer">
+            <a href="login.html" class="nav-button">Login</a>
           </li>
-          <li id="logoutBtnContainer">
-            <button id="logoutBtn">Logout</button>
+          <li id="logoutContainer" style="display: none">
+            <button id="logoutBtn" class="nav-button">Logout</button>
           </li>
         </ul>
       </nav>
@@ -161,7 +160,7 @@
         </div>
       </section>
 
-      <!-- AI Tutorial Container (keep or remove as needed) -->
+      <!-- AI Tutorial Container -->
       <section class="tutorial-container fade-in">
         <h2>AI in Your Profession</h2>
         <label for="profession">Select Your Field:</label>
@@ -187,7 +186,9 @@
     <script src="ai-chat.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        aiChat.initializeChat("gpt-4");
+        if (typeof aiChat !== "undefined") {
+          aiChat.initializeChat("gpt-4");
+        }
       });
     </script>
   </body>

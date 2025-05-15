@@ -1,18 +1,37 @@
+// server.js
 require("dotenv").config();
 const express = require("express");
-const app = express();
 const path = require("path");
+const mongoose = require("mongoose");
+const authRoutes = require("./routes/auth");
 
-// Static files
-app.use(express.static(path.join(__dirname, "public")));
+const app = express();
+const PORT = process.env.PORT || 4000;
 
-// API routes
-app.use("/api/auth", require("./routes/auth"));
+// 1. Connect to MongoDB
+mongoose
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("✅ MongoDB connected"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
 
-// Catch-all route
+// 2. Middleware
+app.use(express.json()); // Parse JSON request bodies
+
+// 3. Serve Static Files (CSS, JS, HTML, assets/)
+app.use(express.static(__dirname));
+
+// 4. API Routes for OTP login
+app.use("/api/auth", authRoutes);
+
+// 5. Fallback Route - for any other GET, serve index.html
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// 6. Start the Server
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
+});

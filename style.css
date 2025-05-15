@@ -1,3 +1,297 @@
+/*===============================
+  Global Resets & Base Styles
+================================*/
+
+/*===============================
+  Auth UI States
+================================*/
+/* Show Login when not authenticated */
+#logoutContainer {
+  display: none;
+}
+#loginContainer {
+  display: block;
+}
+/* Show Logout when authenticated */
+.authenticated #logoutContainer {
+  display: block;
+}
+.authenticated #loginContainer {
+  display: none;
+}
+
+/*===============================
+  Header & Navigation
+================================*/
+header {
+  background: var(--header-bg);
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+}
+.logo h1 {
+  font-size: 1.6rem;
+  color: #fff;
+}
+.menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.menu li a,
+.menu li button {
+  color: #fff;
+  text-decoration: none;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color var(--transition-speed);
+}
+.menu li a:hover,
+.menu li button:hover {
+  color: var(--accent-color);
+}
+#logoutBtn {
+  background: var(--accent-color);
+  color: var(--body-bg);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+}
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+/*===============================
+  Tutorial Container
+================================*/
+.tutorial-container {
+  background: var(--card-bg);
+  margin: 3rem auto;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 800px;
+  text-align: left;
+}
+.tutorial-container label,
+.tutorial-container h2 {
+  color: var(--text-color);
+}
+select {
+  margin-top: 1rem;
+  padding: 0.6rem;
+  border-radius: 5px;
+  background: #333;
+  color: #fff;
+  border: none;
+}
+.tutorial-box {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #2c2c2c;
+  border: 1px solid #555;
+  border-radius: 8px;
+  display: none;
+}
+.tutorial-box.visible {
+  display: block;
+}
+
+/*===============================
+  Login Page Styles
+================================*/
+.login-main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--header-bg);
+}
+.login-container {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+.login-container input {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.8rem 0;
+  border: 1px solid var(--accent-color);
+  border-radius: 4px;
+  background: #121212;
+  color: #fff;
+}
+.login-container button {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  background: var(--accent-color);
+  color: var(--body-bg);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#loginMessage {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+#loginMessage.error {
+  background: #ff4444;
+  color: #fff;
+}
+#loginMessage.info {
+  background: #2196f3;
+  color: #fff;
+}
+
+/*===============================
+  Collapsible & Back-to-Top
+================================*/
+.collapsible {
+  background: #222;
+  color: var(--accent-color);
+  padding: 0.8rem;
+  border: none;
+  width: 100%;
+  text-align: left;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+.collapsible:after {
+  content: "+";
+  float: right;
+}
+.collapsible.active:after {
+  content: "–";
+}
+.content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.content.open {
+  max-height: 200px;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--accent-color);
+  color: var(--body-bg);
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/*===============================
+  Dropdown Menu
+================================*/
+.navbar .menu li.dropdown {
+  position: relative;
+}
+.navbar .menu li.dropdown > a:after {
+  content: " ▼";
+  font-size: 0.8rem;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--card-bg);
+  list-style: none;
+  padding: 0.5rem 0;
+  border-radius: 8px;
+  transform: perspective(500px) rotateX(-90deg);
+  transform-origin: top;
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.navbar .menu li.dropdown:hover .dropdown-menu {
+  transform: perspective(500px) rotateX(0deg);
+  opacity: 1;
+  visibility: visible;
+}
+.dropdown-menu li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--text-color);
+  text-decoration: none;
+}
+.dropdown-menu li a:hover {
+  color: var(--accent-color);
+}
+
+/*===============================
+  Animations & Responsive
+================================*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-in {
+  opacity: 0;
+  transition: opacity var(--transition-speed), transform var(--transition-speed);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  .menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: var(--header-bg);
+  }
+  .menu.show {
+    display: flex;
+  }
+  .menu li {
+    margin: 0.5rem 0;
+  }
+  .categories-grid,
+  .tutorial-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Base Styles */
 body {
   font-family: "Roboto", sans-serif;
@@ -109,89 +403,6 @@ body {
   line-height: 1.6;
   background-color: var(--body-bg);
   color: var(--text-color);
-}
-
-/*===============================
-  Header & Navigation
-================================*/
-header {
-  background: var(--header-bg);
-  padding: 10px; /* Reduced padding */
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.logo h1 {
-  font-size: 1.6rem; /* Smaller logo size */
-}
-.menu {
-  list-style: none;
-  display: flex;
-  align-items: center;
-}
-.menu li {
-  margin-left: 20px;
-}
-.menu a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-  transition: color 0.2s;
-}
-.menu a:hover {
-  color: var(--accent-color);
-}
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  color: #fff;
-}
-
-body {
-  background: #121212;
-  color: white;
-  font-family: Arial, sans-serif;
-  text-align: center;
-}
-
-.tutorial-container {
-  background: #1e1e1e;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 50px auto;
-  width: 60%;
-  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.1);
-}
-
-select {
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: 10px;
-  background: #333;
-  color: white;
-  border: none;
-}
-
-/* Content box styling */
-.tutorial-box {
-  margin-top: 20px;
-  padding: 15px;
-  background: #2c2c2c;
-  border-radius: 10px;
-  text-align: left;
-  display: none; /* Hidden until user selects */
-  border: 1px solid #555;
-}
-
-.tutorial-box.visible {
-  display: block;
 }
 
 /*===============================

@@ -3,11 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login - Learn AI</title>
+    <title>Login – Learn AI</title>
+
+    <!-- Your site’s main stylesheet -->
     <link rel="stylesheet" href="style.css" />
-    <script src="js/login.js" defer></script>
+
+    <!-- Auth guard (redirects logged-in users away, protects other pages) -->
+    <script src="auth.js" defer></script>
+    <!-- Login page logic -->
+    <script src="login.js" defer></script>
   </head>
   <body>
+    <!-- Header with just your logo/nav -->
     <header>
       <nav class="navbar">
         <div class="logo">
@@ -16,17 +23,18 @@
       </nav>
     </header>
 
+    <!-- Login Form -->
     <main class="login-main">
       <div class="login-container">
         <h2>Login with OTP</h2>
 
-        <!-- Step 1: Email Input -->
+        <!-- Step 1: Enter Email -->
         <div id="step1">
           <input type="email" id="loginEmail" placeholder="Enter your email" />
           <button id="sendOtpBtn">Send OTP</button>
         </div>
 
-        <!-- Step 2: OTP Verification -->
+        <!-- Step 2: Enter OTP -->
         <div id="step2" style="display: none">
           <input type="text" id="loginOtp" placeholder="Enter 6-digit OTP" />
           <button id="verifyOtpBtn">Verify OTP</button>
