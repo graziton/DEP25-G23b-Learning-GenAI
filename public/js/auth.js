@@ -7,6 +7,7 @@
 
     if (!isLoggedIn && currentPage !== "login.html") {
       window.location.href = "login.html";
+      return;
     }
 
     if (isLoggedIn && currentPage === "login.html") {
@@ -18,7 +19,7 @@
   function setupLogout() {
     const logoutBtn = document.getElementById("logoutBtn");
     if (logoutBtn) {
-      logoutBtn.addEventListener("click", () => {
+      logoutBtn.addEventListener("click", function () {
         localStorage.removeItem("isLoggedIn");
         // Notify other tabs
         localStorage.setItem("logout-event", Date.now());
@@ -29,7 +30,7 @@
 
   // Cross-tab synchronization
   function setupTabSync() {
-    window.addEventListener("storage", (event) => {
+    window.addEventListener("storage", function (event) {
       if (event.key === "logout-event") {
         localStorage.removeItem("isLoggedIn");
         window.location.href = "login.html";
