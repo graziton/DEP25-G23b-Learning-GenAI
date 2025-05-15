@@ -1,4 +1,3 @@
-// server.js
 require("dotenv").config();
 const express = require("express");
 const path = require("path");
@@ -18,20 +17,20 @@ mongoose
   .catch((err) => console.error("❌ MongoDB connection error:", err));
 
 // 2. Middleware
-app.use(express.json()); // Parse JSON request bodies
+app.use(express.json());
 
-// 3. Serve Static Files (CSS, JS, HTML, assets/)
+// 3. Serve static files (your HTML, CSS, JS, assets/)
 app.use(express.static(__dirname));
 
-// 4. API Routes for OTP login
+// 4. API routes for OTP
 app.use("/api/auth", authRoutes);
 
-// 5. Fallback Route - for any other GET, serve index.html
-app.get("*", (req, res) => {
+// 5. Fallback: send index.html for any non-API route
+app.get(/.*/, (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
-// 6. Start the Server
+// 6. Start server
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
 });

@@ -20,26 +20,28 @@ const transporter = nodemailer.createTransport({
  */
 router.post("/send-otp", async (req, res) => {
   const { email } = req.body;
-  if (!email) return res.status(400).json({ error: "Email is required" });
+  if (!email) {
+    return res.status(400).json({ error: "Email is required" });
+  }
 
   try {
-    // Generate 6-digit numeric OTP
+    // Generate a 6-character OTP: digits only
     const code = otpGenerator.generate(6, {
       digits: true,
-      alphabets: false,
-      upperCase: false,
+      lowerCaseAlphabets: false,
+      upperCaseAlphabets: false,
       specialChars: false,
     });
     const expiresAt = new Date(Date.now() + 5 * 60 * 1000); // 5 minutes
 
-    // Upsert OTP record
+    // Upsert OTP record in MongoDB
     await OTP.findOneAndUpdate(
       { email },
       { code, expiresAt },
       { upsert: true, new: true }
     );
 
-    // Send OTP via email
+    // Send the OTP via email
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: email,
@@ -76,7 +78,7 @@ router.post("/verify-otp", async (req, res) => {
       return res.status(400).json({ error: "OTP has expired" });
     }
 
-    // Valid OTP: remove it so it can’t be reused
+    // Valid OTP: delete it so it can’t be reused
     await OTP.deleteOne({ email });
     res.json({ success: true });
   } catch (err) {

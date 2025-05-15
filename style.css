@@ -301,21 +301,6 @@ body {
   color: #ffffff;
 }
 
-/* Auth UI States */
-#logoutContainer {
-  display: none;
-}
-#loginContainer {
-  display: block;
-}
-
-.authenticated #logoutContainer {
-  display: block;
-}
-.authenticated #loginContainer {
-  display: none;
-}
-
 /* Navigation */
 .navbar {
   display: flex;
